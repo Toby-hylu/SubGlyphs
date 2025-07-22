@@ -1,0 +1,38 @@
+\documentclass[12pt]{article}
+
+% Please typeset with XeLaTeX
+
+\input{../../premable/of\_Subsystems.tex}
+
+\begin{document}
+% 文章內容
+
+%自定義大標題
+\begin{center}
+    {\Huge \textbf{臺語羅馬字} \par}
+    {\Huge \textbf{Taiwanese Tâi-lô} \par}
+    {\Large Hylu \par}
+    \hrulefill
+\end{center}
+
+This document provides SubGlyph of Tâi-Lô, a romanization system of Taiwanese. I'd like to thank the following websites for their comprehensive information. \par
+\begin{itemize}
+	\item 教育部臺灣台語常用詞辭典：https://sutian.moe.edu.tw/zh-hant/
+	\item 臺灣台語羅馬字拼音教學網：https://tailo.moe.edu.tw
+\end{itemize}
+
+\section{Onset}
+\input{TableOnset.tex}%
+Note: C-group is actually the palatalized form of S-group. \par
+
+\clearpage
+
+\section{Tone}
+\input{TableTone.tex}%
+
+\section{Rimes}
+\input{TableRimeCanonical.tex}%
+\clearpage
+\input{TableRimeSpecial.tex}%
+
+\end{document}

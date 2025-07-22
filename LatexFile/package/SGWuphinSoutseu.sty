@@ -1,0 +1,212 @@
+% Provides SubGlyph supporting package SGWuphinSoutseu
+\ProvidesPackage{SGWuphinSoutseu}%
+\RequirePackage{SGBasic}%
+
+\makeatletter%
+% Onset
+\newcommand{\Onset@WuphinSoutseu@}{}%
+\newcommand{\Onset@WuphinSoutseu@p}{pq}%
+\newcommand{\Onset@WuphinSoutseu@ph}{pa}%
+\newcommand{\Onset@WuphinSoutseu@b}{pq,v}%
+\newcommand{\Onset@WuphinSoutseu@m}{pn}%
+\newcommand{\Onset@WuphinSoutseu@f}{pf}%
+\newcommand{\Onset@WuphinSoutseu@v}{pf,v}%
+\newcommand{\Onset@WuphinSoutseu@t}{tq}%
+\newcommand{\Onset@WuphinSoutseu@th}{ta}%
+\newcommand{\Onset@WuphinSoutseu@d}{tq,v}%
+\newcommand{\Onset@WuphinSoutseu@n}{tn}%
+\newcommand{\Onset@WuphinSoutseu@l}{tl}%
+\newcommand{\Onset@WuphinSoutseu@ts}{sq}%
+\newcommand{\Onset@WuphinSoutseu@tsh}{sa}%
+\newcommand{\Onset@WuphinSoutseu@s}{sf}%
+\newcommand{\Onset@WuphinSoutseu@z}{sf,v}%
+\newcommand{\Onset@WuphinSoutseu@c}{cq}%
+\newcommand{\Onset@WuphinSoutseu@ch}{ca}%
+\newcommand{\Onset@WuphinSoutseu@j}{cq,v}%
+\newcommand{\Onset@WuphinSoutseu@gn}{cn}%
+\newcommand{\Onset@WuphinSoutseu@sh}{cf}%
+\newcommand{\Onset@WuphinSoutseu@k}{kq}%
+\newcommand{\Onset@WuphinSoutseu@kh}{ka}%
+\newcommand{\Onset@WuphinSoutseu@g}{kq,v}%
+\newcommand{\Onset@WuphinSoutseu@ng}{kn}%
+\newcommand{\Onset@WuphinSoutseu@h}{hf}%
+\newcommand{\Onset@WuphinSoutseu@gh}{hf,v}%
+\newcommand{\Onset@WuphinSoutseu@y}{hf,v}%
+\newcommand{\Onset@WuphinSoutseu@w}{hf,v}%
+% Rime
+\newcommand{\Glide@WuphinSoutseu@y}{}%
+\newcommand{\Nucleus@WuphinSoutseu@y}{ccxu}%
+\newcommand{\Glide@WuphinSoutseu@yu}{}%
+\newcommand{\Nucleus@WuphinSoutseu@yu}{ccxr}%
+\newcommand{\Glide@WuphinSoutseu@i}{}%
+\newcommand{\Nucleus@WuphinSoutseu@i}{5}%
+\newcommand{\Glide@WuphinSoutseu@u}{}%
+\newcommand{\Nucleus@WuphinSoutseu@u}{ccbr}%
+\newcommand{\Glide@WuphinSoutseu@iu}{}%
+\newcommand{\Nucleus@WuphinSoutseu@iu}{8}%
+\newcommand{\Glide@WuphinSoutseu@en}{}%
+\newcommand{\Nucleus@WuphinSoutseu@en}{ncen}%
+\newcommand{\Glide@WuphinSoutseu@in}{i}%
+\newcommand{\Nucleus@WuphinSoutseu@in}{ncen}%
+\newcommand{\Glide@WuphinSoutseu@uen}{u}%
+\newcommand{\Nucleus@WuphinSoutseu@uen}{ncen}%
+\newcommand{\Glide@WuphinSoutseu@iun}{y}%
+\newcommand{\Nucleus@WuphinSoutseu@iun}{ncen}%
+\newcommand{\Glide@WuphinSoutseu@eq}{}%
+\newcommand{\Nucleus@WuphinSoutseu@eq}{mmcu}%
+\newcommand{\Glide@WuphinSoutseu@iq}{i}%
+\newcommand{\Nucleus@WuphinSoutseu@iq}{mmcu}%
+\newcommand{\Glide@WuphinSoutseu@ueq}{u}%
+\newcommand{\Nucleus@WuphinSoutseu@ueq}{mmcu}%
+\newcommand{\Glide@WuphinSoutseu@iuq}{y}%
+\newcommand{\Nucleus@WuphinSoutseu@iuq}{mmcu}%
+\newcommand{\Glide@WuphinSoutseu@e}{}%
+\newcommand{\Nucleus@WuphinSoutseu@e}{cmfu}%
+\newcommand{\Glide@WuphinSoutseu@ie}{}%
+\newcommand{\Nucleus@WuphinSoutseu@ie}{ccfu}%
+\newcommand{\Glide@WuphinSoutseu@ue}{u}%
+\newcommand{\Nucleus@WuphinSoutseu@ue}{cmfu}%
+\newcommand{\Glide@WuphinSoutseu@an}{}%
+\newcommand{\Nucleus@WuphinSoutseu@an}{oofu,e}%
+\newcommand{\Glide@WuphinSoutseu@ian}{i}%
+\newcommand{\Nucleus@WuphinSoutseu@ian}{oofu,e}%
+\newcommand{\Glide@WuphinSoutseu@uan}{u}%
+\newcommand{\Nucleus@WuphinSoutseu@uan}{oofu,e}%
+\newcommand{\Glide@WuphinSoutseu@aeq}{}%
+\newcommand{\Nucleus@WuphinSoutseu@aeq}{oofu}%
+\newcommand{\Glide@WuphinSoutseu@iaeq}{i}%
+\newcommand{\Nucleus@WuphinSoutseu@iaeq}{oofu}%
+\newcommand{\Glide@WuphinSoutseu@uaeq}{u}%
+\newcommand{\Nucleus@WuphinSoutseu@uaeq}{oofu}%
+\newcommand{\Glide@WuphinSoutseu@iuaeq}{y}%
+\newcommand{\Nucleus@WuphinSoutseu@iuaeq}{oofu}%
+\newcommand{\Glide@WuphinSoutseu@oe}{}%
+\newcommand{\Nucleus@WuphinSoutseu@oe}{cmfr}%
+\newcommand{\Glide@WuphinSoutseu@ioe}{i}%
+\newcommand{\Nucleus@WuphinSoutseu@ioe}{cmfr}%
+\newcommand{\Glide@WuphinSoutseu@uoe}{u}%
+\newcommand{\Nucleus@WuphinSoutseu@uoe}{cmfr}%
+\newcommand{\Glide@WuphinSoutseu@o}{}%
+\newcommand{\Nucleus@WuphinSoutseu@o}{cmbr}%
+\newcommand{\Glide@WuphinSoutseu@io}{i}%
+\newcommand{\Nucleus@WuphinSoutseu@io}{cmbr}%
+\newcommand{\Glide@WuphinSoutseu@on}{}%
+\newcommand{\Nucleus@WuphinSoutseu@on}{ncong}%
+\newcommand{\Glide@WuphinSoutseu@ion}{i}%
+\newcommand{\Nucleus@WuphinSoutseu@ion}{ncong}%
+\newcommand{\Glide@WuphinSoutseu@oq}{}%
+\newcommand{\Nucleus@WuphinSoutseu@oq}{cmbr}%
+\newcommand{\Glide@WuphinSoutseu@ioq}{i}%
+\newcommand{\Nucleus@WuphinSoutseu@ioq}{cmbr}%
+\newcommand{\Glide@WuphinSoutseu@a}{}%
+\newcommand{\Nucleus@WuphinSoutseu@a}{ombu}%
+\newcommand{\Glide@WuphinSoutseu@ia}{i}%
+\newcommand{\Nucleus@WuphinSoutseu@ia}{ombu}%
+\newcommand{\Glide@WuphinSoutseu@ua}{u}%
+\newcommand{\Nucleus@WuphinSoutseu@ua}{ombu}%
+\newcommand{\Glide@WuphinSoutseu@aon}{}%
+\newcommand{\Nucleus@WuphinSoutseu@aon}{ombu,e}%
+\newcommand{\Glide@WuphinSoutseu@iaon}{i}%
+\newcommand{\Nucleus@WuphinSoutseu@iaon}{ombu,e}%
+\newcommand{\Glide@WuphinSoutseu@uaon}{u}%
+\newcommand{\Nucleus@WuphinSoutseu@uaon}{ombu,e}%
+\newcommand{\Glide@WuphinSoutseu@aq}{}%
+\newcommand{\Nucleus@WuphinSoutseu@aq}{ombu}%
+\newcommand{\Glide@WuphinSoutseu@iaq}{i}%
+\newcommand{\Nucleus@WuphinSoutseu@iaq}{ombu}%
+\newcommand{\Glide@WuphinSoutseu@au}{}%
+\newcommand{\Nucleus@WuphinSoutseu@au}{omfu}%
+\newcommand{\Glide@WuphinSoutseu@iau}{i}%
+\newcommand{\Nucleus@WuphinSoutseu@iau}{omfu}%
+\newcommand{\Glide@WuphinSoutseu@eu}{}%
+\newcommand{\Nucleus@WuphinSoutseu@eu}{vcoi}%
+\newcommand{\Glide@WuphinSoutseu@ieu}{}%
+\newcommand{\Nucleus@WuphinSoutseu@ieu}{ccfr}%
+\newcommand{\Glide@WuphinSoutseu@ou}{}%
+\newcommand{\Nucleus@WuphinSoutseu@ou}{vcou}%
+\newcommand{\Glide@WuphinSoutseu@er}{}%
+\newcommand{\Nucleus@WuphinSoutseu@er}{mmxu}%
+\newcommand{\Glide@WuphinSoutseu@m}{}%
+\newcommand{\Nucleus@WuphinSoutseu@m}{m}%
+\newcommand{\Glide@WuphinSoutseu@n}{}%
+\newcommand{\Nucleus@WuphinSoutseu@n}{n}%
+\newcommand{\Glide@WuphinSoutseu@ng}{}%
+\newcommand{\Nucleus@WuphinSoutseu@ng}{ng}%
+% Tone
+\expandafter\newcommand\csname Tonetype@WuphinSoutseu@1\endcsname{p}%
+\expandafter\newcommand\csname Toneclass@WuphinSoutseu@1\endcsname{i}%
+\expandafter\newcommand\csname Tonetype@WuphinSoutseu@2\endcsname{p}%
+\expandafter\newcommand\csname Toneclass@WuphinSoutseu@2\endcsname{a}%
+\expandafter\newcommand\csname Tonetype@WuphinSoutseu@3\endcsname{s}%
+\expandafter\newcommand\csname Toneclass@WuphinSoutseu@3\endcsname{i}%
+\expandafter\newcommand\csname Tonetype@WuphinSoutseu@4\endcsname{s}%
+\expandafter\newcommand\csname Toneclass@WuphinSoutseu@4\endcsname{a}%
+\expandafter\newcommand\csname Tonetype@WuphinSoutseu@5\endcsname{q}%
+\expandafter\newcommand\csname Toneclass@WuphinSoutseu@5\endcsname{i}%
+\expandafter\newcommand\csname Tonetype@WuphinSoutseu@6\endcsname{q}%
+\expandafter\newcommand\csname Toneclass@WuphinSoutseu@6\endcsname{a}%
+\expandafter\newcommand\csname Tonetype@WuphinSoutseu@7\endcsname{r}%
+\expandafter\newcommand\csname Toneclass@WuphinSoutseu@7\endcsname{i}%
+\expandafter\newcommand\csname Tonetype@WuphinSoutseu@8\endcsname{r}%
+\expandafter\newcommand\csname Toneclass@WuphinSoutseu@8\endcsname{a}%
+% Coupling rules
+\newcommand{\Glide@WuphinSoutseu@e@y}{}%
+\newcommand{\Nucleus@WuphinSoutseu@e@y}{ccfu}%
+\newcommand{\Glide@WuphinSoutseu@e@w}{u}%
+\newcommand{\Nucleus@WuphinSoutseu@e@w}{cmfu}%
+\newcommand{\Glide@WuphinSoutseu@an@y}{i}%
+\newcommand{\Nucleus@WuphinSoutseu@an@y}{oofu,e}%
+\newcommand{\Glide@WuphinSoutseu@an@w}{u}%
+\newcommand{\Nucleus@WuphinSoutseu@an@w}{oofu,e}%
+\newcommand{\Glide@WuphinSoutseu@aeq@y}{i}%
+\newcommand{\Nucleus@WuphinSoutseu@aeq@y}{oofu}%
+\newcommand{\Glide@WuphinSoutseu@aeq@w}{u}%
+\newcommand{\Nucleus@WuphinSoutseu@aeq@w}{oofu}%
+\newcommand{\Glide@WuphinSoutseu@oe@y}{i}%
+\newcommand{\Nucleus@WuphinSoutseu@oe@y}{cmfr}%
+\newcommand{\Glide@WuphinSoutseu@oe@w}{u}%
+\newcommand{\Nucleus@WuphinSoutseu@oe@w}{cmfr}%
+\newcommand{\Glide@WuphinSoutseu@o@y}{i}%
+\newcommand{\Nucleus@WuphinSoutseu@o@y}{cmbr}%
+\newcommand{\Glide@WuphinSoutseu@on@y}{i}%
+\newcommand{\Nucleus@WuphinSoutseu@on@y}{ncong}%
+\newcommand{\Glide@WuphinSoutseu@oq@y}{i}%
+\newcommand{\Nucleus@WuphinSoutseu@oq@y}{cmbr}%
+\newcommand{\Glide@WuphinSoutseu@a@y}{i}%
+\newcommand{\Nucleus@WuphinSoutseu@a@y}{ombu}%
+\newcommand{\Glide@WuphinSoutseu@a@w}{u}%
+\newcommand{\Nucleus@WuphinSoutseu@a@w}{ombu}%
+\newcommand{\Glide@WuphinSoutseu@aon@y}{i}%
+\newcommand{\Nucleus@WuphinSoutseu@aon@y}{ombu}%
+\newcommand{\Glide@WuphinSoutseu@aon@w}{u}%
+\newcommand{\Nucleus@WuphinSoutseu@aon@w}{ombu}%
+\newcommand{\Glide@WuphinSoutseu@aq@y}{i}%
+\newcommand{\Nucleus@WuphinSoutseu@aq@y}{ombu}%
+\newcommand{\Glide@WuphinSoutseu@au@y}{}%
+\newcommand{\Nucleus@WuphinSoutseu@au@y}{omfu}%
+\newcommand{\Glide@WuphinSoutseu@eu@y}{}%
+\newcommand{\Nucleus@WuphinSoutseu@eu@y}{ccfr}%
+\newcommand{\Glide@WuphinSoutseu@u@y}{}%
+\newcommand{\Nucleus@WuphinSoutseu@u@y}{8}%
+\newcommand{\Glide@WuphinSoutseu@un@y}{y}%
+\newcommand{\Nucleus@WuphinSoutseu@un@y}{ncen}%
+\newcommand{\Glide@WuphinSoutseu@uq@y}{y}%
+\newcommand{\Nucleus@WuphinSoutseu@uq@y}{cccu}%
+\newcommand{\Glide@WuphinSoutseu@uaeq@y}{y}%
+\newcommand{\Nucleus@WuphinSoutseu@uaeq@y}{oofu}%
+% Interface macros
+\newcommand{\Glide@WuphinSoutseu}[2]{%
+	\expandafter\ifx\csname Glide@WuphinSoutseu@#1@#2\endcsname\relax%
+		\expandafter\ifx\csname Glide@WuphinSoutseu@#1\endcsname\relax%
+			?%
+		\else%
+			\csname Glide@WuphinSoutseu@#1\endcsname%
+		\fi%
+	\else%
+		\csname Glide@WuphinSoutseu@#1@#2\endcsname%
+	\fi%
+}%
+\newcommand{\CodaExt@WuphinSoutseu}[1]{}%
+\newcommand{\Coda@WuphinSoutseu}[1]{}%
+\makeatother%
+\endinput

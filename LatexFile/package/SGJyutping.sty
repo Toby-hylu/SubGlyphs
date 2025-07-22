@@ -1,0 +1,240 @@
+% Provides SubGlyph supporting package SGJyutping
+\ProvidesPackage{SGJyutping}%
+\RequirePackage{SGBasic}%
+
+\makeatletter%
+% Onset
+\newcommand{\Onset@Jyutping@}{}%
+\newcommand{\Onset@Jyutping@b}{pq}%
+\newcommand{\Onset@Jyutping@p}{pa}%
+\newcommand{\Onset@Jyutping@m}{pn}%
+\newcommand{\Onset@Jyutping@f}{pf}%
+\newcommand{\Onset@Jyutping@d}{tq}%
+\newcommand{\Onset@Jyutping@t}{ta}%
+\newcommand{\Onset@Jyutping@n}{tn}%
+\newcommand{\Onset@Jyutping@l}{tl}%
+\newcommand{\Onset@Jyutping@z}{sq}%
+\newcommand{\Onset@Jyutping@c}{sa}%
+\newcommand{\Onset@Jyutping@s}{sf}%
+\newcommand{\Onset@Jyutping@g}{kq}%
+\newcommand{\Onset@Jyutping@k}{ka}%
+\newcommand{\Onset@Jyutping@ng}{kn}%
+\newcommand{\Onset@Jyutping@h}{hf}%
+\newcommand{\Onset@Jyutping@gw}{wq}%
+\newcommand{\Onset@Jyutping@kw}{wa}%
+\newcommand{\Onset@Jyutping@j}{i}%
+\newcommand{\Onset@Jyutping@w}{u}%
+% Rime
+\newcommand{\Nucleus@Jyutping@m}{m}%
+\newcommand{\Coda@Jyutping@m}{}%
+\newcommand{\Nucleus@Jyutping@ng}{ng}%
+\newcommand{\Coda@Jyutping@ng}{}%
+\newcommand{\Nucleus@Jyutping@i}{ccfu}%
+\newcommand{\Coda@Jyutping@i}{}%
+\newcommand{\Nucleus@Jyutping@iu}{ccfu}%
+\newcommand{\Coda@Jyutping@iu}{u}%
+\newcommand{\Nucleus@Jyutping@im}{ccfu}%
+\newcommand{\Coda@Jyutping@im}{m}%
+\newcommand{\Nucleus@Jyutping@in}{ccfu}%
+\newcommand{\Coda@Jyutping@in}{n}%
+\newcommand{\Nucleus@Jyutping@ing}{ccfu}%
+\newcommand{\Coda@Jyutping@ing}{ng}%
+\newcommand{\Nucleus@Jyutping@ip}{ccfu}%
+\newcommand{\Coda@Jyutping@ip}{m}%
+\newcommand{\Nucleus@Jyutping@it}{ccfu}%
+\newcommand{\Coda@Jyutping@it}{n}%
+\newcommand{\Nucleus@Jyutping@ik}{ccfu}%
+\newcommand{\Coda@Jyutping@ik}{ng}%
+\newcommand{\Nucleus@Jyutping@yu}{ccfr}%
+\newcommand{\Coda@Jyutping@yu}{}%
+\newcommand{\Nucleus@Jyutping@yum}{ccfr}%
+\newcommand{\Coda@Jyutping@yum}{m}%
+\newcommand{\Nucleus@Jyutping@yun}{ccfr}%
+\newcommand{\Coda@Jyutping@yun}{n}%
+\newcommand{\Nucleus@Jyutping@yung}{ccfr}%
+\newcommand{\Coda@Jyutping@yung}{ng}%
+\newcommand{\Nucleus@Jyutping@yup}{ccfr}%
+\newcommand{\Coda@Jyutping@yup}{m}%
+\newcommand{\Nucleus@Jyutping@yut}{ccfr}%
+\newcommand{\Coda@Jyutping@yut}{n}%
+\newcommand{\Nucleus@Jyutping@yuk}{ccfr}%
+\newcommand{\Coda@Jyutping@yuk}{ng}%
+\newcommand{\Nucleus@Jyutping@u}{ccbr}%
+\newcommand{\Coda@Jyutping@u}{}%
+\newcommand{\Nucleus@Jyutping@ui}{ccbr}%
+\newcommand{\Coda@Jyutping@ui}{i}%
+\newcommand{\Nucleus@Jyutping@um}{ccbr}%
+\newcommand{\Coda@Jyutping@um}{m}%
+\newcommand{\Nucleus@Jyutping@un}{ccbr}%
+\newcommand{\Coda@Jyutping@un}{n}%
+\newcommand{\Nucleus@Jyutping@ung}{ccbr}%
+\newcommand{\Coda@Jyutping@ung}{ng}%
+\newcommand{\Nucleus@Jyutping@up}{ccbr}%
+\newcommand{\Coda@Jyutping@up}{m}%
+\newcommand{\Nucleus@Jyutping@ut}{ccbr}%
+\newcommand{\Coda@Jyutping@ut}{n}%
+\newcommand{\Nucleus@Jyutping@uk}{ccbr}%
+\newcommand{\Coda@Jyutping@uk}{ng}%
+\newcommand{\Nucleus@Jyutping@e}{omfu}%
+\newcommand{\Coda@Jyutping@e}{}%
+\newcommand{\Nucleus@Jyutping@ei}{omfu}%
+\newcommand{\Coda@Jyutping@ei}{i}%
+\newcommand{\Nucleus@Jyutping@eu}{omfu}%
+\newcommand{\Coda@Jyutping@eu}{u}%
+\newcommand{\Nucleus@Jyutping@em}{omfu}%
+\newcommand{\Coda@Jyutping@em}{m}%
+\newcommand{\Nucleus@Jyutping@en}{omfu}%
+\newcommand{\Coda@Jyutping@en}{n}%
+\newcommand{\Nucleus@Jyutping@eng}{omfu}%
+\newcommand{\Coda@Jyutping@eng}{ng}%
+\newcommand{\Nucleus@Jyutping@ep}{omfu}%
+\newcommand{\Coda@Jyutping@ep}{m}%
+\newcommand{\Nucleus@Jyutping@et}{omfu}%
+\newcommand{\Coda@Jyutping@et}{n}%
+\newcommand{\Nucleus@Jyutping@ek}{omfu}%
+\newcommand{\Coda@Jyutping@ek}{ng}%
+\newcommand{\Nucleus@Jyutping@eo}{cmcr}%
+\newcommand{\Coda@Jyutping@eo}{}%
+\newcommand{\Nucleus@Jyutping@eoi}{cmcr}%
+\newcommand{\Coda@Jyutping@eoi}{i}%
+\newcommand{\Nucleus@Jyutping@eou}{cmcr}%
+\newcommand{\Coda@Jyutping@eou}{u}%
+\newcommand{\Nucleus@Jyutping@eom}{cmcr}%
+\newcommand{\Coda@Jyutping@eom}{m}%
+\newcommand{\Nucleus@Jyutping@eon}{cmcr}%
+\newcommand{\Coda@Jyutping@eon}{n}%
+\newcommand{\Nucleus@Jyutping@eong}{cmcr}%
+\newcommand{\Coda@Jyutping@eong}{ng}%
+\newcommand{\Nucleus@Jyutping@eop}{cmcr}%
+\newcommand{\Coda@Jyutping@eop}{m}%
+\newcommand{\Nucleus@Jyutping@eot}{cmcr}%
+\newcommand{\Coda@Jyutping@eot}{n}%
+\newcommand{\Nucleus@Jyutping@eok}{cmcr}%
+\newcommand{\Coda@Jyutping@eok}{ng}%
+\newcommand{\Nucleus@Jyutping@oe}{omfr}%
+\newcommand{\Coda@Jyutping@oe}{}%
+\newcommand{\Nucleus@Jyutping@oei}{omfr}%
+\newcommand{\Coda@Jyutping@oei}{i}%
+\newcommand{\Nucleus@Jyutping@oeu}{omfr}%
+\newcommand{\Coda@Jyutping@oeu}{u}%
+\newcommand{\Nucleus@Jyutping@oem}{omfr}%
+\newcommand{\Coda@Jyutping@oem}{m}%
+\newcommand{\Nucleus@Jyutping@oen}{omfr}%
+\newcommand{\Coda@Jyutping@oen}{n}%
+\newcommand{\Nucleus@Jyutping@oeng}{omfr}%
+\newcommand{\Coda@Jyutping@oeng}{ng}%
+\newcommand{\Nucleus@Jyutping@oep}{omfr}%
+\newcommand{\Coda@Jyutping@oep}{m}%
+\newcommand{\Nucleus@Jyutping@oet}{omfr}%
+\newcommand{\Coda@Jyutping@oet}{n}%
+\newcommand{\Nucleus@Jyutping@oek}{omfr}%
+\newcommand{\Coda@Jyutping@oek}{ng}%
+\newcommand{\Nucleus@Jyutping@o}{cmbr}%
+\newcommand{\Coda@Jyutping@o}{}%
+\newcommand{\Nucleus@Jyutping@oi}{cmbr}%
+\newcommand{\Coda@Jyutping@oi}{i}%
+\newcommand{\Nucleus@Jyutping@ou}{cmbr}%
+\newcommand{\Coda@Jyutping@ou}{u}%
+\newcommand{\Nucleus@Jyutping@om}{cmbr}%
+\newcommand{\Coda@Jyutping@om}{m}%
+\newcommand{\Nucleus@Jyutping@on}{cmbr}%
+\newcommand{\Coda@Jyutping@on}{n}%
+\newcommand{\Nucleus@Jyutping@ong}{cmbr}%
+\newcommand{\Coda@Jyutping@ong}{ng}%
+\newcommand{\Nucleus@Jyutping@op}{cmbr}%
+\newcommand{\Coda@Jyutping@op}{m}%
+\newcommand{\Nucleus@Jyutping@ot}{cmbr}%
+\newcommand{\Coda@Jyutping@ot}{n}%
+\newcommand{\Nucleus@Jyutping@ok}{cmbr}%
+\newcommand{\Coda@Jyutping@ok}{ng}%
+\newcommand{\Nucleus@Jyutping@a}{oscu}%
+\newcommand{\Coda@Jyutping@a}{}%
+\newcommand{\Nucleus@Jyutping@ai}{oscu}%
+\newcommand{\Coda@Jyutping@ai}{i}%
+\newcommand{\Nucleus@Jyutping@au}{oscu}%
+\newcommand{\Coda@Jyutping@au}{u}%
+\newcommand{\Nucleus@Jyutping@am}{oscu}%
+\newcommand{\Coda@Jyutping@am}{m}%
+\newcommand{\Nucleus@Jyutping@an}{oscu}%
+\newcommand{\Coda@Jyutping@an}{n}%
+\newcommand{\Nucleus@Jyutping@ang}{oscu}%
+\newcommand{\Coda@Jyutping@ang}{ng}%
+\newcommand{\Nucleus@Jyutping@ap}{oscu}%
+\newcommand{\Coda@Jyutping@ap}{m}%
+\newcommand{\Nucleus@Jyutping@at}{oscu}%
+\newcommand{\Coda@Jyutping@at}{n}%
+\newcommand{\Nucleus@Jyutping@ak}{oscu}%
+\newcommand{\Coda@Jyutping@ak}{ng}%
+\newcommand{\Nucleus@Jyutping@aa}{oofu}%
+\newcommand{\Coda@Jyutping@aa}{}%
+\newcommand{\Nucleus@Jyutping@aai}{oofu}%
+\newcommand{\Coda@Jyutping@aai}{i}%
+\newcommand{\Nucleus@Jyutping@aau}{oofu}%
+\newcommand{\Coda@Jyutping@aau}{u}%
+\newcommand{\Nucleus@Jyutping@aam}{oofu}%
+\newcommand{\Coda@Jyutping@aam}{m}%
+\newcommand{\Nucleus@Jyutping@aan}{oofu}%
+\newcommand{\Coda@Jyutping@aan}{n}%
+\newcommand{\Nucleus@Jyutping@aang}{oofu}%
+\newcommand{\Coda@Jyutping@aang}{ng}%
+\newcommand{\Nucleus@Jyutping@aap}{oofu}%
+\newcommand{\Coda@Jyutping@aap}{m}%
+\newcommand{\Nucleus@Jyutping@aat}{oofu}%
+\newcommand{\Coda@Jyutping@aat}{n}%
+\newcommand{\Nucleus@Jyutping@aak}{oofu}%
+\newcommand{\Coda@Jyutping@aak}{ng}%
+% Tone
+\expandafter\newcommand\csname Tonetype@Jyutping@1\endcsname{p}%
+\expandafter\newcommand\csname Toneclass@Jyutping@1\endcsname{i}%
+\expandafter\newcommand\csname Tonetype@Jyutping@2\endcsname{s}%
+\expandafter\newcommand\csname Toneclass@Jyutping@2\endcsname{i}%
+\expandafter\newcommand\csname Tonetype@Jyutping@3\endcsname{q}%
+\expandafter\newcommand\csname Toneclass@Jyutping@3\endcsname{i}%
+\expandafter\newcommand\csname Tonetype@Jyutping@4\endcsname{p}%
+\expandafter\newcommand\csname Toneclass@Jyutping@4\endcsname{a}%
+\expandafter\newcommand\csname Tonetype@Jyutping@5\endcsname{s}%
+\expandafter\newcommand\csname Toneclass@Jyutping@5\endcsname{a}%
+\expandafter\newcommand\csname Tonetype@Jyutping@6\endcsname{q}%
+\expandafter\newcommand\csname Toneclass@Jyutping@6\endcsname{a}%
+\expandafter\newcommand\csname Tonetype@Jyutping@7\endcsname{r}%
+\expandafter\newcommand\csname Toneclass@Jyutping@7\endcsname{i}%
+\expandafter\newcommand\csname Tonetype@Jyutping@8\endcsname{r}%
+\expandafter\newcommand\csname Toneclass@Jyutping@8\endcsname{z}%
+\expandafter\newcommand\csname Tonetype@Jyutping@9\endcsname{r}%
+\expandafter\newcommand\csname Toneclass@Jyutping@9\endcsname{a}%
+% Coupling rules
+\newcommand{\Onset@Jyutping@j@i}{}%
+\newcommand{\Onset@Jyutping@j@iu}{}%
+\newcommand{\Onset@Jyutping@j@im}{}%
+\newcommand{\Onset@Jyutping@j@in}{}%
+\newcommand{\Onset@Jyutping@j@ing}{}%
+\newcommand{\Onset@Jyutping@j@ip}{}%
+\newcommand{\Onset@Jyutping@j@it}{}%
+\newcommand{\Onset@Jyutping@j@ik}{}%
+\newcommand{\Onset@Jyutping@j@yu}{}%
+\newcommand{\Onset@Jyutping@j@yum}{}%
+\newcommand{\Onset@Jyutping@j@yun}{}%
+\newcommand{\Onset@Jyutping@j@yung}{}%
+\newcommand{\Onset@Jyutping@j@yup}{}%
+\newcommand{\Onset@Jyutping@j@yut}{}%
+\newcommand{\Onset@Jyutping@j@yuk}{}%
+\newcommand{\Onset@Jyutping@w@u}{}%
+\newcommand{\Onset@Jyutping@w@ui}{}%
+\newcommand{\Onset@Jyutping@w@um}{}%
+\newcommand{\Onset@Jyutping@w@un}{}%
+\newcommand{\Onset@Jyutping@w@ung}{}%
+\newcommand{\Onset@Jyutping@w@up}{}%
+\newcommand{\Onset@Jyutping@w@ut}{}%
+\newcommand{\Onset@Jyutping@w@uk}{}%
+% Interface macros
+\newcommand{\Glide@Jyutping}[2]{}%
+\newcommand{\CodaExt@Jyutping}[1]{}%
+\newcommand{\Coda@Jyutping}[1]{%
+	\expandafter\ifx\csname Coda@Jyutping@#1\endcsname\relax%
+		?%
+	\else%
+		\csname Coda@Jyutping@#1\endcsname%
+	\fi%
+}%
+\makeatother%
+\endinput

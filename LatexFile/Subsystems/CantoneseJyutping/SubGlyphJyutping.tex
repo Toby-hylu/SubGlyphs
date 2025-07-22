@@ -1,0 +1,36 @@
+\documentclass[12pt]{article}
+
+% Please typeset with XeLaTeX
+
+\input{../../premable/of\_Subsystems.tex}
+
+\begin{document}
+% 文章內容
+
+%自定義大標題
+\begin{center}
+    {\Huge \textbf{粵拼} \par}
+    {\Huge \textbf{Jyutping} \par}
+    {\Large Hylu \par}
+    \hrulefill
+\end{center}
+This document provides SubGlyph of Jyutping, a romanization system of Cantonese. I'd like to thank the following websites for their comprehensive information. \par
+\begin{itemize}
+	\item 粵語審音配詞字庫：https://humanum.arts.cuhk.edu.hk/Lexis/lexi-can/
+	\item 粵拼：https://jyutping.org
+\end{itemize}
+
+\section{Onsets}
+Glides are treated as special onsets in most Romanization of Cantonese including Jyutping. Thus, I followed the tradition in the SubGlyph system of Cantonese as well. \par
+\input{TableOnset.tex}%
+
+\section{Tones}
+In SubGlyphs, coda p, t and k are treated as the checked tone form of m, n and ng. Please switch checked tone labeled as 1, 3 and 6 in Jyutping to 7, 8 and 9 manually while using The {\textbackslash}ToSubGlyphs command. \par
+The 8th tone is lower yin checked tone. I used expanded checked tone to describe it. \par
+\input{TableTone.tex}%
+
+\section{Rimes}
+I listed every possible rimes, even if it is not used in real speech. \par
+\input{TableRime.tex}%
+
+\end{document}

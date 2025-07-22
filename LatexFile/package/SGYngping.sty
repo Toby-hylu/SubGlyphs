@@ -1,0 +1,285 @@
+% Provides SubGlyph supporting package SGYngping
+\ProvidesPackage{SGYngping}%
+\RequirePackage{SGBasic}%
+
+\makeatletter%
+% Onset
+\newcommand{\Onset@Yngping@}{}%
+\newcommand{\Onset@Yngping@b}{pq}%
+\newcommand{\Onset@Yngping@p}{pa}%
+\newcommand{\Onset@Yngping@m}{pn}%
+\newcommand{\Onset@Yngping@w}{pq,e}%
+\newcommand{\Onset@Yngping@d}{tq}%
+\newcommand{\Onset@Yngping@t}{ta}%
+\newcommand{\Onset@Yngping@s}{sf}%
+\newcommand{\Onset@Yngping@n}{tn}%
+\newcommand{\Onset@Yngping@l}{tl}%
+\newcommand{\Onset@Yngping@ll}{tl,e}%
+\newcommand{\Onset@Yngping@z}{sq}%
+\newcommand{\Onset@Yngping@c}{sa}%
+\newcommand{\Onset@Yngping@nj}{sq,e}%
+\newcommand{\Onset@Yngping@j}{sq,v}%
+\newcommand{\Onset@Yngping@g}{kq}%
+\newcommand{\Onset@Yngping@k}{ka}%
+\newcommand{\Onset@Yngping@ng}{kn}%
+\newcommand{\Onset@Yngping@h}{kf}%
+\newcommand{\Onset@Yngping@hh}{hq}%
+% Rime
+\newcommand{\Glide@Yngping@a}{}%
+\newcommand{\Nucleus@Yngping@a}{oofu}%
+\newcommand{\Coda@Yngping@a}{}%
+\newcommand{\Glide@Yngping@ah}{}%
+\newcommand{\Nucleus@Yngping@ah}{oofu}%
+\newcommand{\Coda@Yngping@ah}{}%
+\newcommand{\Glide@Yngping@ai}{}%
+\newcommand{\Nucleus@Yngping@ai}{vcai}%
+\newcommand{\Coda@Yngping@ai}{}%
+\newcommand{\Glide@Yngping@au}{}%
+\newcommand{\Nucleus@Yngping@au}{vcau}%
+\newcommand{\Coda@Yngping@au}{}%
+\newcommand{\Glide@Yngping@ang}{}%
+\newcommand{\Nucleus@Yngping@ang}{oofu}%
+\newcommand{\Coda@Yngping@ang}{ng}%
+\newcommand{\Glide@Yngping@ak}{}%
+\newcommand{\Nucleus@Yngping@ak}{oofu}%
+\newcommand{\Coda@Yngping@ak}{ng}%
+\newcommand{\Glide@Yngping@ia}{i}%
+\newcommand{\Nucleus@Yngping@ia}{oofu}%
+\newcommand{\Coda@Yngping@ia}{}%
+\newcommand{\Glide@Yngping@iah}{i}%
+\newcommand{\Nucleus@Yngping@iah}{oofu}%
+\newcommand{\Coda@Yngping@iah}{}%
+\newcommand{\Glide@Yngping@iai}{i}%
+\newcommand{\Nucleus@Yngping@iai}{vcai}%
+\newcommand{\Coda@Yngping@iai}{}%
+\newcommand{\Glide@Yngping@iau}{i}%
+\newcommand{\Nucleus@Yngping@iau}{vcau}%
+\newcommand{\Coda@Yngping@iau}{}%
+\newcommand{\Glide@Yngping@iang}{i}%
+\newcommand{\Nucleus@Yngping@iang}{oofu}%
+\newcommand{\Coda@Yngping@iang}{ng}%
+\newcommand{\Glide@Yngping@iak}{i}%
+\newcommand{\Nucleus@Yngping@iak}{oofu}%
+\newcommand{\Coda@Yngping@iak}{ng}%
+\newcommand{\Glide@Yngping@ua}{u}%
+\newcommand{\Nucleus@Yngping@ua}{oofu}%
+\newcommand{\Coda@Yngping@ua}{}%
+\newcommand{\Glide@Yngping@uah}{u}%
+\newcommand{\Nucleus@Yngping@uah}{oofu}%
+\newcommand{\Coda@Yngping@uah}{}%
+\newcommand{\Glide@Yngping@uai}{u}%
+\newcommand{\Nucleus@Yngping@uai}{vcai}%
+\newcommand{\Coda@Yngping@uai}{}%
+\newcommand{\Glide@Yngping@uau}{u}%
+\newcommand{\Nucleus@Yngping@uau}{vcau}%
+\newcommand{\Coda@Yngping@uau}{}%
+\newcommand{\Glide@Yngping@uang}{u}%
+\newcommand{\Nucleus@Yngping@uang}{oofu}%
+\newcommand{\Coda@Yngping@uang}{ng}%
+\newcommand{\Glide@Yngping@uak}{u}%
+\newcommand{\Nucleus@Yngping@uak}{oofu}%
+\newcommand{\Coda@Yngping@uak}{ng}%
+\newcommand{\Glide@Yngping@ie}{i}%
+\newcommand{\Nucleus@Yngping@ie}{omfu}%
+\newcommand{\Coda@Yngping@ie}{}%
+\newcommand{\Glide@Yngping@ieh}{i}%
+\newcommand{\Nucleus@Yngping@ieh}{omfu}%
+\newcommand{\Coda@Yngping@ieh}{}%
+\newcommand{\Glide@Yngping@ieng}{i}%
+\newcommand{\Nucleus@Yngping@ieng}{omfu}%
+\newcommand{\Coda@Yngping@ieng}{ng}%
+\newcommand{\Glide@Yngping@iek}{i}%
+\newcommand{\Nucleus@Yngping@iek}{omfu}%
+\newcommand{\Coda@Yngping@iek}{ng}%
+\newcommand{\Glide@Yngping@uo}{u}%
+\newcommand{\Nucleus@Yngping@uo}{cmbr}%
+\newcommand{\Coda@Yngping@uo}{}%
+\newcommand{\Glide@Yngping@uoh}{u}%
+\newcommand{\Nucleus@Yngping@uoh}{cmbr}%
+\newcommand{\Coda@Yngping@uoh}{}%
+\newcommand{\Glide@Yngping@uong}{u}%
+\newcommand{\Nucleus@Yngping@uong}{cmbr}%
+\newcommand{\Coda@Yngping@uong}{ng}%
+\newcommand{\Glide@Yngping@uok}{u}%
+\newcommand{\Nucleus@Yngping@uok}{cmbr}%
+\newcommand{\Coda@Yngping@uok}{ng}%
+\newcommand{\Glide@Yngping@yo}{y}%
+\newcommand{\Nucleus@Yngping@yo}{cmbr}%
+\newcommand{\Coda@Yngping@yo}{}%
+\newcommand{\Glide@Yngping@yoh}{y}%
+\newcommand{\Nucleus@Yngping@yoh}{cmbr}%
+\newcommand{\Coda@Yngping@yoh}{}%
+\newcommand{\Glide@Yngping@yong}{y}%
+\newcommand{\Nucleus@Yngping@yong}{cmbr}%
+\newcommand{\Coda@Yngping@yong}{ng}%
+\newcommand{\Glide@Yngping@yok}{y}%
+\newcommand{\Nucleus@Yngping@yok}{cmbr}%
+\newcommand{\Coda@Yngping@yok}{ng}%
+\newcommand{\Glide@Yngping@o}{}%
+\newcommand{\Nucleus@Yngping@o}{cmbr}%
+\newcommand{\Coda@Yngping@o}{}%
+\newcommand{\Glide@Yngping@oh}{}%
+\newcommand{\Nucleus@Yngping@oh}{cmbr}%
+\newcommand{\Coda@Yngping@oh}{}%
+\newcommand{\Glide@Yngping@oung}{}%
+\newcommand{\Nucleus@Yngping@oung}{vcou}%
+\newcommand{\Coda@Yngping@oung}{ng}%
+\newcommand{\Glide@Yngping@ouk}{}%
+\newcommand{\Nucleus@Yngping@ouk}{vcou}%
+\newcommand{\Coda@Yngping@ouk}{ng}%
+\newcommand{\Glide@Yngping@oo}{}%
+\newcommand{\Nucleus@Yngping@oo}{ombr}%
+\newcommand{\Coda@Yngping@oo}{}%
+\newcommand{\Glide@Yngping@ooh}{}%
+\newcommand{\Nucleus@Yngping@ooh}{ombr}%
+\newcommand{\Coda@Yngping@ooh}{}%
+\newcommand{\Glide@Yngping@ooung}{}%
+\newcommand{\Nucleus@Yngping@ooung}{vcoou}%
+\newcommand{\Coda@Yngping@ooung}{ng}%
+\newcommand{\Glide@Yngping@oouk}{}%
+\newcommand{\Nucleus@Yngping@oouk}{vcoou}%
+\newcommand{\Coda@Yngping@oouk}{ng}%
+\newcommand{\Glide@Yngping@eo}{}%
+\newcommand{\Nucleus@Yngping@eo}{cmfr}%
+\newcommand{\Coda@Yngping@eo}{}%
+\newcommand{\Glide@Yngping@eoh}{}%
+\newcommand{\Nucleus@Yngping@eoh}{cmfr}%
+\newcommand{\Coda@Yngping@eoh}{}%
+\newcommand{\Glide@Yngping@eoy}{}%
+\newcommand{\Nucleus@Yngping@eoy}{vcoi}%
+\newcommand{\Coda@Yngping@eoy}{}%
+\newcommand{\Glide@Yngping@eoyng}{}%
+\newcommand{\Nucleus@Yngping@eoyng}{vcoi}%
+\newcommand{\Coda@Yngping@eoyng}{ng}%
+\newcommand{\Glide@Yngping@eoyk}{}%
+\newcommand{\Nucleus@Yngping@eoyk}{vcoi}%
+\newcommand{\Coda@Yngping@eoyk}{ng}%
+\newcommand{\Glide@Yngping@ooy}{}%
+\newcommand{\Nucleus@Yngping@ooy}{vcooi}%
+\newcommand{\Coda@Yngping@ooy}{}%
+\newcommand{\Glide@Yngping@ooyng}{}%
+\newcommand{\Nucleus@Yngping@ooyng}{vcooi}%
+\newcommand{\Coda@Yngping@ooyng}{ng}%
+\newcommand{\Glide@Yngping@ooyk}{}%
+\newcommand{\Nucleus@Yngping@ooyk}{vcooi}%
+\newcommand{\Coda@Yngping@ooyk}{ng}%
+\newcommand{\Glide@Yngping@e}{}%
+\newcommand{\Nucleus@Yngping@e}{omfu}%
+\newcommand{\Coda@Yngping@e}{}%
+\newcommand{\Glide@Yngping@eh}{}%
+\newcommand{\Nucleus@Yngping@eh}{omfu}%
+\newcommand{\Coda@Yngping@eh}{}%
+\newcommand{\Glide@Yngping@eu}{}%
+\newcommand{\Nucleus@Yngping@eu}{vceu}%
+\newcommand{\Coda@Yngping@eu}{}%
+\newcommand{\Glide@Yngping@eing}{}%
+\newcommand{\Nucleus@Yngping@eing}{vcei}%
+\newcommand{\Coda@Yngping@eing}{ng}%
+\newcommand{\Glide@Yngping@eik}{}%
+\newcommand{\Nucleus@Yngping@eik}{vcei}%
+\newcommand{\Coda@Yngping@eik}{ng}%
+\newcommand{\Glide@Yngping@aing}{}%
+\newcommand{\Nucleus@Yngping@aing}{vcai}%
+\newcommand{\Coda@Yngping@aing}{ng}%
+\newcommand{\Glide@Yngping@aik}{}%
+\newcommand{\Nucleus@Yngping@aik}{vcai}%
+\newcommand{\Coda@Yngping@aik}{ng}%
+\newcommand{\Glide@Yngping@i}{}%
+\newcommand{\Nucleus@Yngping@i}{ccfu}%
+\newcommand{\Coda@Yngping@i}{}%
+\newcommand{\Glide@Yngping@ih}{}%
+\newcommand{\Nucleus@Yngping@ih}{ccfu}%
+\newcommand{\Coda@Yngping@ih}{}%
+\newcommand{\Glide@Yngping@iu}{}%
+\newcommand{\Nucleus@Yngping@iu}{vciu}%
+\newcommand{\Coda@Yngping@iu}{}%
+\newcommand{\Glide@Yngping@ing}{}%
+\newcommand{\Nucleus@Yngping@ing}{ccfu}%
+\newcommand{\Coda@Yngping@ing}{ng}%
+\newcommand{\Glide@Yngping@ik}{}%
+\newcommand{\Nucleus@Yngping@ik}{ccfu}%
+\newcommand{\Coda@Yngping@ik}{ng}%
+\newcommand{\Glide@Yngping@ei}{}%
+\newcommand{\Nucleus@Yngping@ei}{vcei}%
+\newcommand{\Coda@Yngping@ei}{}%
+\newcommand{\Glide@Yngping@eih}{}%
+\newcommand{\Nucleus@Yngping@eih}{vcei}%
+\newcommand{\Coda@Yngping@eih}{}%
+\newcommand{\Glide@Yngping@u}{}%
+\newcommand{\Nucleus@Yngping@u}{ccbr}%
+\newcommand{\Coda@Yngping@u}{}%
+\newcommand{\Glide@Yngping@uh}{}%
+\newcommand{\Nucleus@Yngping@uh}{ccbr}%
+\newcommand{\Coda@Yngping@uh}{}%
+\newcommand{\Glide@Yngping@ui}{}%
+\newcommand{\Nucleus@Yngping@ui}{vcui}%
+\newcommand{\Coda@Yngping@ui}{}%
+\newcommand{\Glide@Yngping@ung}{}%
+\newcommand{\Nucleus@Yngping@ung}{ccbr}%
+\newcommand{\Coda@Yngping@ung}{ng}%
+\newcommand{\Glide@Yngping@uk}{}%
+\newcommand{\Nucleus@Yngping@uk}{ccbr}%
+\newcommand{\Coda@Yngping@uk}{ng}%
+\newcommand{\Glide@Yngping@ou}{}%
+\newcommand{\Nucleus@Yngping@ou}{vcou}%
+\newcommand{\Coda@Yngping@ou}{}%
+\newcommand{\Glide@Yngping@ouh}{}%
+\newcommand{\Nucleus@Yngping@ouh}{vcou}%
+\newcommand{\Coda@Yngping@ouh}{}%
+\newcommand{\Glide@Yngping@y}{}%
+\newcommand{\Nucleus@Yngping@y}{ccfr}%
+\newcommand{\Coda@Yngping@y}{}%
+\newcommand{\Glide@Yngping@yh}{}%
+\newcommand{\Nucleus@Yngping@yh}{ccfr}%
+\newcommand{\Coda@Yngping@yh}{}%
+\newcommand{\Glide@Yngping@yng}{}%
+\newcommand{\Nucleus@Yngping@yng}{ccfr}%
+\newcommand{\Coda@Yngping@yng}{ng}%
+\newcommand{\Glide@Yngping@yk}{}%
+\newcommand{\Nucleus@Yngping@yk}{ccfr}%
+\newcommand{\Coda@Yngping@yk}{ng}%
+\newcommand{\Glide@Yngping@eoyh}{}%
+\newcommand{\Nucleus@Yngping@eoyh}{vcoi}%
+\newcommand{\Coda@Yngping@eoyh}{}%
+% Tone
+\expandafter\newcommand\csname Tonetype@Yngping@1\endcsname{p}%
+\expandafter\newcommand\csname Toneclass@Yngping@1\endcsname{i}%
+\expandafter\newcommand\csname Tonetype@Yngping@2\endcsname{s}%
+\expandafter\newcommand\csname Toneclass@Yngping@2\endcsname{i}%
+\expandafter\newcommand\csname Tonetype@Yngping@3\endcsname{q}%
+\expandafter\newcommand\csname Toneclass@Yngping@3\endcsname{i}%
+\expandafter\newcommand\csname Tonetype@Yngping@4\endcsname{r}%
+\expandafter\newcommand\csname Toneclass@Yngping@4\endcsname{i}%
+\expandafter\newcommand\csname Tonetype@Yngping@5\endcsname{p}%
+\expandafter\newcommand\csname Toneclass@Yngping@5\endcsname{a}%
+\expandafter\newcommand\csname Tonetype@Yngping@6\endcsname{s}%
+\expandafter\newcommand\csname Toneclass@Yngping@6\endcsname{a}%
+\expandafter\newcommand\csname Tonetype@Yngping@7\endcsname{q}%
+\expandafter\newcommand\csname Toneclass@Yngping@7\endcsname{a}%
+\expandafter\newcommand\csname Tonetype@Yngping@8\endcsname{r}%
+\expandafter\newcommand\csname Toneclass@Yngping@8\endcsname{a}%
+\expandafter\newcommand\csname Tonetype@Yngping@0\endcsname{p}%
+\expandafter\newcommand\csname Toneclass@Yngping@0\endcsname{z}%
+% Coupling rules
+% Interface macros
+\newcommand{\Glide@Yngping}[2]{%
+	\expandafter\ifx\csname Glide@Yngping@#1@#2\endcsname\relax%
+		\expandafter\ifx\csname Glide@Yngping@#1\endcsname\relax%
+			?%
+		\else%
+			\csname Glide@Yngping@#1\endcsname%
+		\fi%
+	\else%
+		\csname Glide@Yngping@#1@#2\endcsname%
+	\fi%
+}%
+\newcommand{\CodaExt@Yngping}[1]{}%
+\newcommand{\Coda@Yngping}[1]{%
+	\expandafter\ifx\csname Coda@Yngping@#1\endcsname\relax%
+		?%
+	\else%
+		\csname Coda@Yngping@#1\endcsname%
+	\fi%
+}%
+\makeatother%
+\endinput

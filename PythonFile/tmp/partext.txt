@@ -1,0 +1,1 @@
+台語白讀的\ToSubGlyph{Tailo}{ts}{it}{8}與福州話的\ToSubGlyph{Yngping}{s}{uoh}{8}都帶了一個噝音聲母，這明顯與其他語言不同。

@@ -1,0 +1,137 @@
+% Chinese package
+\usepackage{ctex}
+
+% Latin fonts
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\setsansfont{Arial Narrow}
+\setmonofont{Courier New}
+
+% Character fonts
+\setCJKmainfont{TW-Kai-98_1}
+\setCJKsansfont{Noto Sans CJK TC}
+
+% page settings
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+% \pagestyle{plain}
+
+% titlesec
+\usepackage{titlesec}
+\titleformat{\section}
+	{\normalfont\fontsize{16}{19.2}\bfseries}
+	{\thesection}
+	{1em}
+	{}
+
+\titleformat{\subsection}
+	{\normalfont\fontsize{14}{16.8}\bfseries}
+	{\thesubsection}
+	{1em}
+	{}
+
+\titleformat{\subsubsection}
+	{\normalfont\fontsize{12}{14.4}\bfseries}
+	{\thesubsubsection}
+	{1em}
+	{}
+
+\titleformat{\paragraph}
+	{\normalfont\fontsize{12}{14.4}\normalfont}
+	{\theparagraph}
+	{1em}
+	{}
+
+\titleformat{\subparagraph}
+  {\normalfont\normalsize\normalfont}
+  {\thesubparagraph}
+  {1em}
+  {}
+
+\titlespacing{\section}{0pt}{2pt}{2pt}
+
+% other packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{tipa} 
+
+% no indent
+\setlength{\parindent}{0pt}
+
+% section rename
+\renewcommand{\thesection}{Section \arabic{section}}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\numberwithin{equation}{section}
+
+% head, foot and page styles
+\usepackage{fancyhdr} 
+\setlength{\headheight}{15pt}
+\fancyhf{}
+\lhead{SubGlyph}
+\chead{HyLU}
+\rhead{通用拼合式注音}
+\cfoot{\thepage}
+
+%head
+\pagestyle{fancy}
+
+% add section number to math
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+
+% tabularX settings
+\usepackage{tabularx}
+\usepackage[table]{xcolor}
+\usepackage{xstring}
+\usepackage{xparse}
+\usepackage{array}
+\newcolumntype{L}{ >{\raggedright\arraybackslash}X }
+\newcolumntype{C}{ >{\centering\arraybackslash}X }
+\newcolumntype{R}{ >{\raggedleft\arraybackslash}X }
+
+% Gray table
+\newcommand{\MaybeGray}[1]{%
+	\IfStrEq{#1}{N/A}{\cellcolor{gray!60}N/A}{%
+		\IfStrEq{#1}{}{ \cellcolor{gray!60} }{#1}%
+	}%
+}
+
+% Macro for table generating
+\captionsetup[table]{skip=3pt}
+\NewDocumentCommand{\MyTable}{m m m m}{
+	\begin{table}[h!]
+		\centering
+		\caption{#1}
+		\label{#2}
+		\par \noindent
+		\begin{tabularx}{\textwidth}{|#3|}
+			\hline
+			#4
+			\hline
+		\end{tabularx}
+		\par
+	\end{table}
+}
+
+% item settings
+\usepackage{enumitem}
+\setlist[itemize]{itemsep=0pt}
+
+% Fig, Tab settings
+\renewcommand{\figurename}{Figure}
+\renewcommand{\tablename}{Table}
+
+%package
+\makeatletter%
+\def\input@path{{../../package/}}
+\makeatother%
+\usepackage{SubGlyph}

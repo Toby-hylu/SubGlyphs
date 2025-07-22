@@ -1,0 +1,17 @@
+\section{聲調}
+調用聲調符號的宏為{\textbackslash}ToneCoda\{調型碼\}\{調類碼\}\{韻尾碼\}，定義於SGBasic.sty內。聲調標識遵循以下標準：\par
+\begin{itemize}
+	\item 調型碼：平、上、去、入分別對應p, s, q, r。
+	\item 調類碼：陰、陽、中分別對應i, a, z，中調只是表明其屬於擴展調型，並不表示其無法明定陰陽調型，例如粵語之「下陰入」調。
+	\item 韻尾碼：m, n, ng可以應用於平上去入四個調型，在遇到入聲時會自動轉為p, t, k形式；p, t, k韻尾只能應用於入聲調，應用於其他調型會導致解析失敗；若有需求，可以使用對應輔音或元音的碼產生擴展標調，例如以下範例提供了填入hn產生鼻化音的四聲。
+\end{itemize}
+\MyTable{聲調韻尾組合表}{tab:ToneCoda}{c|C|C|C|C}{
+	韻尾{\textbackslash}聲調 & 平 & 上 & 去 & 入 \\
+	\hline
+	無 & \ToneCoda{p}{i}{} & \ToneCoda{s}{i}{} & \ToneCoda{q}{i}{} & \ToneCoda{r}{i}{} \\
+	唇 & \ToneCoda{p}{i}{m} & \ToneCoda{s}{i}{m} & \ToneCoda{q}{i}{m} & \ToneCoda{r}{i}{m} \\
+	舌尖 & \ToneCoda{p}{i}{n} & \ToneCoda{s}{i}{n} & \ToneCoda{q}{i}{n} & \ToneCoda{r}{i}{n} \\
+	舌根 & \ToneCoda{p}{i}{ng} & \ToneCoda{s}{i}{ng} & \ToneCoda{q}{i}{ng} & \ToneCoda{r}{i}{ng} \\
+	鼻化 & \ToneCoda{p}{i}{hn} & \ToneCoda{s}{i}{hn} & \ToneCoda{q}{i}{hn} & \ToneCoda{r}{i}{hn} \\
+}
+\clearpage

@@ -1,0 +1,34 @@
+\section{聲母}
+調用聲母符號的宏為{\textbackslash}bpmf\{主碼,附碼\}，定義於SGBasic.sty。\par
+\begin{itemize}
+	\item 主碼：填入下表所示的調音碼，先寫調音部位、再寫調音方式。例如，{\textbackslash}bpmf\{pq\}表示\bpmf{pq}。如果主碼解析失敗，會產生一個問號。
+	\item 附碼：無附加符號可以省略或填入附碼o，濁點的附碼為v，半濁點的附碼為v。如果附碼解析失敗，則產生一個上標問號。務必注意，該宏只能解析「半形」逗號。
+\end{itemize}
+聲門鼻音本來在國際音標是不存在的符號，鑑於某些語言裡鼻化與鼻音韻尾有同樣的音系地位，我以不可能發音的聲門鼻音代表「地位相當於鼻音韻尾的鼻化」，以便形式一致。\par
+\MyTable{聲母表}{tab:Onset}{c|C|C|C|C|C|C|C|C}{
+	方式{\textbackslash}部位 & 唇p & 齦t & 齦噝s & 齦腭c & 捲舌r & 軟腭k & 聲門h & 唇腭w \\
+	\hline
+	全清q & {\bpmf{pq}} & {\bpmf{tq}} & {\bpmf{sq}} & {\bpmf{cq}} & {\bpmf{rq}} & {\bpmf{kq}} & {\bpmf{hq}} & {\bpmf{wq}} \\
+	\hline
+	次清a & {\bpmf{pa}} & {\bpmf{ta}} & {\bpmf{sa}} & {\bpmf{ca}} & {\bpmf{ra}} & {\bpmf{ka}} & \MaybeGray{} & {\bpmf{wa}} \\
+	\hline
+	全濁q[v] & {\bpmf{pq,v}} & {\bpmf{tq,v}} & {\bpmf{sq,v}} & {\bpmf{cq,v}} & {\bpmf{rq,v}} & {\bpmf{kq,v}} & \MaybeGray{} & {\bpmf{wq,v}} \\
+	全濁z & {\bpmf{pz}} & {} & {\bpmf{sz}} & {\bpmf{cz}} & {} & {\bpmf{kz}} & \MaybeGray{} & {} \\
+	\hline
+	次濁n & {\bpmf{pn}} & {\bpmf{tn}} & \MaybeGray{} & {\bpmf{cn}} & {\bpmf{rn}} & {\bpmf{kn}} & ({\bpmf{hn}}) & {} \\
+	\hline
+	次濁l & \MaybeGray{} & {\bpmf{tl}} & \MaybeGray{} & {} & {} & {} & \MaybeGray{} & \MaybeGray{} \\
+	\hline
+	清f & {\bpmf{pf}} & \multicolumn{2}{c|}{\bpmf{sf}} & {\bpmf{cf}} & {\bpmf{rf}} & \multicolumn{2}{c|}{\bpmf{kf}} & {} \\
+	\hline
+	濁f[v] & {\bpmf{pf,v}} & \multicolumn{2}{c|}{\bpmf{sf,v}} & {\bpmf{cf,v}} & {\bpmf{rf,v}} & \multicolumn{2}{c|}{\bpmf{kf,v}} & {} \\
+	濁v & {\bpmf{pv}} & \multicolumn{2}{c|}{} & {\bpmf{cv}} & {\bpmf{rv}} & \multicolumn{2}{c|}{\bpmf{kv}} & {} \\
+}
+部分語言需要把近音分析為聲母，不過注音符號沒有區分近音與元音，因此我暫且讓介音命令調用對應元音的注音符號。如果未來有拓展或修訂，可直接修改介音符號的命令。\par
+\begin{itemize}
+	\item {\textbackslash}bpmf\{i\} = \bpmf{i}；
+	\item {\textbackslash}bpmf\{u\} = \bpmf{u}；
+	\item {\textbackslash}bpmf\{y\} = \bpmf{y}。
+\end{itemize}
+
+\clearpage

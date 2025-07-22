@@ -1,0 +1,24 @@
+\section{韻母}
+\subsection{單元音}
+調用元音符號的宏為{\textbackslash}bpmf\{主碼,附碼\}，定義於SGBasic.sty。\par
+\begin{itemize}
+	\item 主碼：開口度（兩個字母）、舌位（一個字母）、圓唇度（一個字母）。例如，「閉前展唇元音（\bpmf{ccfu}）」為{\textbackslash}bpmf\{ccfu\}。如果四字母主碼不夠用，填入阿拉伯數字1～9可得到楷體蘇州碼子作為臨時符號。
+	\item 附碼：與輔音一致。
+\end{itemize}
+方音符號裡表示鼻化韻的符號，在這裡拿來表示非鼻音的單元音。這是因為鼻化既有形式韻尾符號，又可以用附碼，無需單獨符號。鑑於羅馬字系統不區分普通輔音與輔音成音節的拼式，輔音成音節在本系統使用普通輔音注音符號。\par
+\input{./image/monophthong.tex}
+
+\subsection{雙元音}
+原本的鼻化韻符號也改為非鼻化的其他預組元音。\par
+\MyTable{預組元音}{tab:Precombined}{c|c|C|C|C|C|C|C}{
+	字串開頭 & 韻尾｜韻腹 & {\bpmf{oofu}}a & {\bpmf{omfu}}e & {\bpmf{cmbr}}o & {\bpmf{ombr}}oo & {\bpmf{ccfu}}i & {\bpmf{ccbr}}u \\
+	\hline
+	vc & {\bpmf{ccfu}}i & {\bpmf{vcai}} & {\bpmf{vcei}} & {\bpmf{vcoi}} & {\bpmf{vcooi}} & \MaybeGray{} & {\bpmf{vcui}} \\
+	vc & {\bpmf{ccbr}}u & {\bpmf{vcau}} & {\bpmf{vceu}} & {\bpmf{vcou}} & {\bpmf{vcoou}} & {\bpmf{vciu}} & \MaybeGray{} \\
+	\hline
+	nc & {\bpmf{pn}}m & {\bpmf{ncam}} & {} & {\bpmf{ncom}} & {} & {} & {} \\
+	nc & {\bpmf{tn}}n & {\bpmf{ncan}} & {\bpmf{ncen}} & {} & {} & {} & {} \\
+	nc & {\bpmf{kn}}ng & {\bpmf{ncang}} & {\bpmf{nceng}} & {\bpmf{ncong}} & {} & {} & {} \\
+}%
+
+\clearpage

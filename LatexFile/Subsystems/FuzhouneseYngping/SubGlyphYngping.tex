@@ -1,0 +1,49 @@
+\documentclass[12pt]{article}
+
+% Please typeset with XeLaTeX
+
+\input{../../premable/of\_Subsystems.tex}%
+
+\usepackage{arydshln}% array dash line
+
+% characters with no font supporting
+\newcommand{\YngpingCooIQ}{%
+	\makebox[1em][c]{\small{扌}\kern-0.6em\small{苴}}%
+}%
+\newcommand{\YngpingTuhAR}{%
+	\makebox[1em][c]{\small{賣}\kern-0.6em\small{刀}}%
+}
+\newcommand{\YngpingTouhIR}{%
+	\makebox[1em][c]{\small{扌}\kern-0.6em\small{禿}}%
+}
+
+\begin{document}
+% 文章內容
+
+%自定義大標題
+\begin{center}
+    {\Huge \textbf{榕拼} \par}
+    {\Huge \textbf{Fuzhounese Yngping} \par}
+    {\Large Hylu \par}
+    \hrulefill
+\end{center}
+
+This document describes SubGlyph of Yngping, a romanization system of Fuzhounese. I'd like to thank the following websites for their comprehensive information. \par
+\begin{itemize}
+	\item 榕拼：https://yngping.zingzeu.org/spec/v0.4.0-preview2/main.html
+\end{itemize}
+
+\section{Onsets}
+\input{TableOnset.tex}%
+\clearpage
+
+\section{Tones}
+\input{TableTone.tex}%
+
+\section{Rimes}
+\input{TableNoLoose.tex}%s
+\clearpage
+I have considered to write loose rimes in the form of its tense counterpart with dakuten. For example, the pronunciation of "骨" might be noted as \SubGlyph{kq}{}{vcou,v}{}{ng}{r}{i}. Despite, Yngping did not distinguish the tokens of being tense or loose - like "ouk" being the loose counterpart of "uk" and tense counterpart of "oouk" simultaneously. Since I am not a Fuzhounese speaker, I decided to assign different symbols rather than directly use dakuten. \par
+\input{TableLoose.tex}%
+
+\end{document}

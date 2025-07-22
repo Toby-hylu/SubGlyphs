@@ -1,0 +1,209 @@
+% Provides SubGlyph supporting package SGHanpin
+\ProvidesPackage{SGHanpin}%
+\RequirePackage{SGBasic}%
+
+\makeatletter%
+% Onset
+\newcommand{\Onset@Hanpin@}{}%
+\newcommand{\Onset@Hanpin@b}{pq}%
+\newcommand{\Onset@Hanpin@p}{pa}%
+\newcommand{\Onset@Hanpin@m}{pn}%
+\newcommand{\Onset@Hanpin@f}{pf}%
+\newcommand{\Onset@Hanpin@d}{tq}%
+\newcommand{\Onset@Hanpin@t}{ta}%
+\newcommand{\Onset@Hanpin@n}{tn}%
+\newcommand{\Onset@Hanpin@l}{tl}%
+\newcommand{\Onset@Hanpin@g}{kq}%
+\newcommand{\Onset@Hanpin@k}{ka}%
+\newcommand{\Onset@Hanpin@h}{kf}%
+\newcommand{\Onset@Hanpin@j}{cq}%
+\newcommand{\Onset@Hanpin@q}{ca}%
+\newcommand{\Onset@Hanpin@x}{cf}%
+\newcommand{\Onset@Hanpin@zh}{rq}%
+\newcommand{\Onset@Hanpin@ch}{ra}%
+\newcommand{\Onset@Hanpin@sh}{rf}%
+\newcommand{\Onset@Hanpin@r}{rv}%
+\newcommand{\Onset@Hanpin@z}{sq}%
+\newcommand{\Onset@Hanpin@c}{sa}%
+\newcommand{\Onset@Hanpin@s}{sf}%
+% Rime
+\newcommand{\Glide@Hanpin@i}{}%
+\newcommand{\Nucleus@Hanpin@i}{ccfu}%
+\newcommand{\Glide@Hanpin@u}{}%
+\newcommand{\Nucleus@Hanpin@u}{ccbr}%
+\newcommand{\Glide@Hanpin@ü}{}%
+\newcommand{\Nucleus@Hanpin@ü}{ccfr}%
+\newcommand{\Glide@Hanpin@v}{}%
+\newcommand{\Nucleus@Hanpin@v}{ccfr}%
+\newcommand{\Glide@Hanpin@yi}{}%
+\newcommand{\Nucleus@Hanpin@yi}{ccfu}%
+\newcommand{\Glide@Hanpin@wu}{}%
+\newcommand{\Nucleus@Hanpin@wu}{ccbr}%
+\newcommand{\Glide@Hanpin@yu}{}%
+\newcommand{\Nucleus@Hanpin@yu}{ccfr}%
+\newcommand{\Glide@Hanpin@a}{}%
+\newcommand{\Nucleus@Hanpin@a}{oofu}%
+\newcommand{\Glide@Hanpin@ai}{}%
+\newcommand{\Nucleus@Hanpin@ai}{vcai}%
+\newcommand{\Glide@Hanpin@ao}{}%
+\newcommand{\Nucleus@Hanpin@ao}{vcau}%
+\newcommand{\Glide@Hanpin@an}{}%
+\newcommand{\Nucleus@Hanpin@an}{ncan}%
+\newcommand{\Glide@Hanpin@ang}{}%
+\newcommand{\Nucleus@Hanpin@ang}{ncang}%
+\newcommand{\Glide@Hanpin@ia}{i}%
+\newcommand{\Nucleus@Hanpin@ia}{oofu}%
+\newcommand{\Glide@Hanpin@iai}{i}%
+\newcommand{\Nucleus@Hanpin@iai}{vcai}%
+\newcommand{\Glide@Hanpin@iao}{i}%
+\newcommand{\Nucleus@Hanpin@iao}{vcau}%
+\newcommand{\Glide@Hanpin@ian}{i}%
+\newcommand{\Nucleus@Hanpin@ian}{ncan}%
+\newcommand{\Glide@Hanpin@iang}{i}%
+\newcommand{\Nucleus@Hanpin@iang}{ncang}%
+\newcommand{\Glide@Hanpin@ya}{i}%
+\newcommand{\Nucleus@Hanpin@ya}{oofu}%
+\newcommand{\Glide@Hanpin@yai}{i}%
+\newcommand{\Nucleus@Hanpin@yai}{vcai}%
+\newcommand{\Glide@Hanpin@yao}{i}%
+\newcommand{\Nucleus@Hanpin@yao}{vcau}%
+\newcommand{\Glide@Hanpin@yan}{i}%
+\newcommand{\Nucleus@Hanpin@yan}{ncan}%
+\newcommand{\Glide@Hanpin@yang}{i}%
+\newcommand{\Nucleus@Hanpin@yang}{ncang}%
+\newcommand{\Glide@Hanpin@ua}{u}%
+\newcommand{\Nucleus@Hanpin@ua}{oofu}%
+\newcommand{\Glide@Hanpin@uai}{u}%
+\newcommand{\Nucleus@Hanpin@uai}{vcai}%
+\newcommand{\Glide@Hanpin@uan}{u}%
+\newcommand{\Nucleus@Hanpin@uan}{ncan}%
+\newcommand{\Glide@Hanpin@uang}{u}%
+\newcommand{\Nucleus@Hanpin@uang}{ncang}%
+\newcommand{\Glide@Hanpin@wa}{u}%
+\newcommand{\Nucleus@Hanpin@wa}{oofu}%
+\newcommand{\Glide@Hanpin@wai}{u}%
+\newcommand{\Nucleus@Hanpin@wai}{vcai}%
+\newcommand{\Glide@Hanpin@wan}{u}%
+\newcommand{\Nucleus@Hanpin@wan}{ncan}%
+\newcommand{\Glide@Hanpin@wang}{u}%
+\newcommand{\Nucleus@Hanpin@wang}{ncang}%
+\newcommand{\Glide@Hanpin@yuan}{y}%
+\newcommand{\Nucleus@Hanpin@yuan}{ncan}%
+\newcommand{\Glide@Hanpin@o}{}%
+\newcommand{\Nucleus@Hanpin@o}{cmbr}%
+\newcommand{\Glide@Hanpin@ou}{}%
+\newcommand{\Nucleus@Hanpin@ou}{vcou}%
+\newcommand{\Glide@Hanpin@uo}{u}%
+\newcommand{\Nucleus@Hanpin@uo}{cmbr}%
+\newcommand{\Glide@Hanpin@wo}{u}%
+\newcommand{\Nucleus@Hanpin@wo}{cmbr}%
+\newcommand{\Glide@Hanpin@iu}{i}%
+\newcommand{\Nucleus@Hanpin@iu}{vcou}%
+\newcommand{\Glide@Hanpin@you}{i}%
+\newcommand{\Nucleus@Hanpin@you}{vcou}%
+\newcommand{\Glide@Hanpin@e}{}%
+\newcommand{\Nucleus@Hanpin@e}{cmbu}%
+\newcommand{\Glide@Hanpin@ee}{}%
+\newcommand{\Nucleus@Hanpin@ee}{omfu}%
+\newcommand{\Glide@Hanpin@ei}{}%
+\newcommand{\Nucleus@Hanpin@ei}{vcei}%
+\newcommand{\Glide@Hanpin@en}{}%
+\newcommand{\Nucleus@Hanpin@en}{ncen}%
+\newcommand{\Glide@Hanpin@eng}{}%
+\newcommand{\Nucleus@Hanpin@eng}{nceng}%
+\newcommand{\Glide@Hanpin@ie}{i}%
+\newcommand{\Nucleus@Hanpin@ie}{omfu}%
+\newcommand{\Glide@Hanpin@in}{i}%
+\newcommand{\Nucleus@Hanpin@in}{ncen}%
+\newcommand{\Glide@Hanpin@ing}{i}%
+\newcommand{\Nucleus@Hanpin@ing}{nceng}%
+\newcommand{\Glide@Hanpin@ye}{i}%
+\newcommand{\Nucleus@Hanpin@ye}{omfu}%
+\newcommand{\Glide@Hanpin@yin}{i}%
+\newcommand{\Nucleus@Hanpin@yin}{ncen}%
+\newcommand{\Glide@Hanpin@ying}{i}%
+\newcommand{\Nucleus@Hanpin@ying}{nceng}%
+\newcommand{\Glide@Hanpin@ui}{u}%
+\newcommand{\Nucleus@Hanpin@ui}{vcei}%
+\newcommand{\Glide@Hanpin@un}{u}%
+\newcommand{\Nucleus@Hanpin@un}{ncen}%
+\newcommand{\Glide@Hanpin@ong}{u}%
+\newcommand{\Nucleus@Hanpin@ong}{nceng}%
+\newcommand{\Glide@Hanpin@wei}{u}%
+\newcommand{\Nucleus@Hanpin@wei}{vcei}%
+\newcommand{\Glide@Hanpin@wen}{u}%
+\newcommand{\Nucleus@Hanpin@wen}{ncen}%
+\newcommand{\Glide@Hanpin@weng}{u}%
+\newcommand{\Nucleus@Hanpin@weng}{nceng}%
+\newcommand{\Glide@Hanpin@ue}{y}%
+\newcommand{\Nucleus@Hanpin@ue}{omfu}%
+\newcommand{\Glide@Hanpin@iong}{y}%
+\newcommand{\Nucleus@Hanpin@iong}{nceng}%
+\newcommand{\Glide@Hanpin@yue}{y}%
+\newcommand{\Nucleus@Hanpin@yue}{omfu}%
+\newcommand{\Glide@Hanpin@yun}{y}%
+\newcommand{\Nucleus@Hanpin@yun}{ncen}%
+\newcommand{\Glide@Hanpin@yong}{y}%
+\newcommand{\Nucleus@Hanpin@yong}{nceng}%
+\newcommand{\Glide@Hanpin@er}{}%
+\newcommand{\Nucleus@Hanpin@er}{mmxu}%
+% Tone
+\expandafter\newcommand\csname Tonetype@Hanpin@1\endcsname{p}%
+\expandafter\newcommand\csname Toneclass@Hanpin@1\endcsname{i}%
+\expandafter\newcommand\csname Tonetype@Hanpin@2\endcsname{p}%
+\expandafter\newcommand\csname Toneclass@Hanpin@2\endcsname{a}%
+\expandafter\newcommand\csname Tonetype@Hanpin@3\endcsname{s}%
+\expandafter\newcommand\csname Toneclass@Hanpin@3\endcsname{i}%
+\expandafter\newcommand\csname Tonetype@Hanpin@4\endcsname{q}%
+\expandafter\newcommand\csname Toneclass@Hanpin@4\endcsname{i}%
+\expandafter\newcommand\csname Tonetype@Hanpin@5\endcsname{p}%
+\expandafter\newcommand\csname Toneclass@Hanpin@5\endcsname{z}%
+% Coupling rules
+\newcommand{\Glide@Hanpin@i@zh}{}%
+\newcommand{\Nucleus@Hanpin@i@zh}{ccxu}%
+\newcommand{\Glide@Hanpin@i@ch}{}%
+\newcommand{\Nucleus@Hanpin@i@ch}{ccxu}%
+\newcommand{\Glide@Hanpin@i@sh}{}%
+\newcommand{\Nucleus@Hanpin@i@sh}{ccxu}%
+\newcommand{\Glide@Hanpin@i@r}{}%
+\newcommand{\Nucleus@Hanpin@i@r}{ccxu}%
+\newcommand{\Glide@Hanpin@i@z}{}%
+\newcommand{\Nucleus@Hanpin@i@z}{ccxu}%
+\newcommand{\Glide@Hanpin@i@c}{}%
+\newcommand{\Nucleus@Hanpin@i@c}{ccxu}%
+\newcommand{\Glide@Hanpin@i@s}{}%
+\newcommand{\Nucleus@Hanpin@i@s}{ccxu}%
+\newcommand{\Glide@Hanpin@u@j}{}%
+\newcommand{\Nucleus@Hanpin@u@j}{ccfr}%
+\newcommand{\Glide@Hanpin@u@q}{}%
+\newcommand{\Nucleus@Hanpin@u@q}{ccfr}%
+\newcommand{\Glide@Hanpin@u@x}{}%
+\newcommand{\Nucleus@Hanpin@u@x}{ccfr}%
+\newcommand{\Glide@Hanpin@uan@j}{y}%
+\newcommand{\Nucleus@Hanpin@uan@j}{ncan}%
+\newcommand{\Glide@Hanpin@uan@q}{y}%
+\newcommand{\Nucleus@Hanpin@uan@q}{ncan}%
+\newcommand{\Glide@Hanpin@uan@x}{y}%
+\newcommand{\Nucleus@Hanpin@uan@x}{ncan}%
+\newcommand{\Glide@Hanpin@un@j}{y}%
+\newcommand{\Nucleus@Hanpin@un@j}{ncen}%
+\newcommand{\Glide@Hanpin@un@q}{y}%
+\newcommand{\Nucleus@Hanpin@un@q}{ncen}%
+\newcommand{\Glide@Hanpin@un@x}{y}%
+\newcommand{\Nucleus@Hanpin@un@x}{ncen}%
+% Interface macros
+\newcommand{\Glide@Hanpin}[2]{%
+	\expandafter\ifx\csname Glide@Hanpin@#1@#2\endcsname\relax%
+		\expandafter\ifx\csname Glide@Hanpin@#1\endcsname\relax%
+			?%
+		\else%
+			\csname Glide@Hanpin@#1\endcsname%
+		\fi%
+	\else%
+		\csname Glide@Hanpin@#1@#2\endcsname%
+	\fi%
+}%
+\newcommand{\CodaExt@Hanpin}[1]{}%
+\newcommand{\Coda@Hanpin}[1]{}%
+\makeatother%
+\endinput

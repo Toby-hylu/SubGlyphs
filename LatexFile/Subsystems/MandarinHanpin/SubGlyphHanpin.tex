@@ -1,0 +1,32 @@
+\documentclass[12pt]{article}
+
+% Please typeset with XeLaTeX
+
+\input{../../premable/of\_Subsystems.tex}
+
+\begin{document}
+% 文章內容
+
+%自定義大標題
+\begin{center}
+    {\Huge \textbf{漢語拼音} \par}
+    {\Huge \textbf{Mandarin Pinyin} \par}
+    {\Large Hylu \par}
+    \hrulefill
+\end{center}
+
+%測試\ToSubGlyph{Pinyin}{p}{ang}{2}。
+This document provides description of SubGlyph of Pīnyīn, a romanization system of Mandarin. \par
+
+\section{Onsets}
+\input{TableOnset.tex}%
+
+\section{Tones}
+\input{TableTone.tex}%
+
+\clearpage
+
+\section{Rimes}
+\input{TableRime.tex}%
+
+\end{document}

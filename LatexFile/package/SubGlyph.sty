@@ -1,0 +1,79 @@
+% Provides package SubGlyph
+
+\ProvidesPackage{SubGlyph}%
+
+% Set path for package dependence
+%\makeatletter%
+%\def\input@path{{.}}
+%\makeatother%
+
+% ======== AutoRequiredPackages START ======== %
+\RequirePackage{SGBasic}
+\RequirePackage{SGHagpinXiian}
+\RequirePackage{SGHanpin}
+\RequirePackage{SGJyutping}
+\RequirePackage{SGTailo}
+\RequirePackage{SGWuphinSoutseu}
+\RequirePackage{SGYngping}
+% ========= AutoRequiredPackages END ========= %
+
+\newcommand{\Onset}[3]{%
+	% #1: name of language
+	% #2: latinized onset
+	% #3: latinized rime
+	\expandafter\ifx\csname Onset@#1@#2@#3\endcsname\relax%
+		\expandafter\ifx\csname Onset@#1@#2\endcsname\relax%
+			?%
+		\else%
+			\csname Onset@#1@#2\endcsname%
+		\fi%
+	\else%
+		\csname Onset@#1@#2@#3\endcsname%
+	\fi%
+}%
+
+\newcommand{\Nucleus}[3]{%
+	% #1: name of language
+	% #2: latinized rime
+	% #3: latinized onset
+	\expandafter\ifx\csname Nucleus@#1@#2@#3\endcsname\relax%
+		\expandafter\ifx\csname Nucleus@#1@#2\endcsname\relax%
+			?%
+		\else%
+			\csname Nucleus@#1@#2\endcsname%
+		\fi%
+	\else%
+		\csname Nucleus@#1@#2@#3\endcsname%
+	\fi%
+}%
+
+\newcommand{\Toneclass}[2]{%
+	\expandafter\ifx\csname Toneclass@#1@#2\endcsname\relax%
+		?%
+	\else%
+		\csname Toneclass@#1@#2\endcsname%
+	\fi%
+}%
+
+\newcommand{\Tonetype}[2]{%
+	\expandafter\ifx\csname Tonetype@#1@#2\endcsname\relax%
+		?%
+	\else%
+		\csname Tonetype@#1@#2\endcsname%
+	\fi%
+}%
+
+\newcommand{\ToSubGlyph}[4]{%
+	% #1: name of language
+	% #2: latinized onset
+	% #3: latinized rime
+	% #4: numerized tone
+	\SubGlyph%
+		{\Onset{#1}{#2}{#3}}%
+		{\csname Glide@#1\endcsname{#3}{#2}}%
+		{\Nucleus{#1}{#3}{#2}}%
+		{\csname CodaExt@#1\endcsname{#3}}%
+		{\csname Coda@#1\endcsname{#3}}%
+		{\Tonetype{#1}{#4}}%
+		{\Toneclass{#1}{#4}}%
+}%

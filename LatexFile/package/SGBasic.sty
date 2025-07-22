@@ -1,0 +1,426 @@
+% Provides package SGBasic
+
+\ProvidesPackage{SGBasic}
+\RequirePackage{tikz}
+\RequirePackage{amsmath}
+\RequirePackage{fontspec}
+\RequirePackage{xstring}
+
+% basic tikz lines
+\pgfmathsetmacro{\LeftMid}{-0.35}
+\pgfmathsetmacro{\RightMid}{0.4}
+\pgfmathsetmacro{\AboveMid}{0.25}
+\pgfmathsetmacro{\AboveFquad}{0.35}
+\pgfmathsetmacro{\AboveTquad}{0.15}
+\pgfmathsetmacro{\BelowMid}{-0.4}
+\pgfmathsetmacro{\BelowTquad}{-0.3}
+\pgfmathsetmacro{\BelowFquad}{-0.5}
+
+% node style
+\tikzset{
+	state/.style={
+		inner sep=0pt, outer sep=0pt, 
+		text height=2ex, text depth=-0.25ex, 
+		align=center, anchor=center, 
+		font=\large,
+	}
+}
+
+% font settings
+\setCJKfamilyfont{extfont}{Moe-Kai-Zhuyin}
+\newcommand{\textext}[1]{{\CJKfamily{extfont} #1}}
+
+\setCJKfamilyfont{mainfont}{TW-Kai-98_1}
+\newcommand{\textmain}[1]{{\CJKfamily{mainfont} #1}}
+
+\setCJKfamilyfont{sztonefont}{BiauKaiTC-Regular}
+\newcommand{\textsz}[1]{{\CJKfamily{sztonefont} #1}}
+
+%debug
+%\font\nullfont=cmr10
+
+% special symbols
+\newcommand{\Voiced}{\textext{\char"3099}}% dakuten, to make the symbol become voiced version
+\newcommand{\Expanded}{\textext{\char"309A}}% hanndakuten, to make the symbol become expanded version
+\newcommand{\Unknown}{\textmain{？}}
+\newcommand{\SuperscriptUnknown}{\textsuperscript{\textmain{？}}}
+
+%Bopomofo symbols
+\makeatletter% start of inner commands
+
+% onset marks
+\newcommand{\Bopomofo@Decorate@o}{}%original version
+\newcommand{\Bopomofo@Decorate@v}{\textext{\char"3099}}%voiced version
+\newcommand{\Bopomofo@Decorate@e}{\textext{\char"309A}}%expanded version
+\newcommand{\Bopomofo@Decorate@unknown}{\textsuperscript{\textmain{？}}}%unknown
+
+%consonant symbols
+% ---------- Naming logic ---------- %
+% -- Place of Articulation -- %
+% p: Labial (either bilabial or labio-dental)
+% t: Alveolar Central
+% s: Alveolar Sibilant
+% r: Retroflex
+% c: Alveolo-palatal
+% k: Velar
+% h: Glottal
+% w: Labio-velar
+% -- Manner of Articulation -- %
+% q: voiceless plosive/affricate
+% a: aspirated plosive/affrivate
+% z: voiced plosive/affricate
+% n: nasal
+% l: lateral
+% f: voiceless fricative
+% v: voiced fricative
+% ---------- Start of definition ---------- %
+% -- p --
+\newcommand{\Bopomofo@Symbol@pq}{\textext{\char"3105}}%ㄅ
+\newcommand{\Bopomofo@Symbol@pa}{\textext{\char"3106}}%ㄆ
+\newcommand{\Bopomofo@Symbol@pn}{\textext{\char"3107}}%ㄇ
+\newcommand{\Bopomofo@Symbol@pz}{\textext{\char"31A0}}%ㆠ
+\newcommand{\Bopomofo@Symbol@pf}{\textext{\char"3108}}%ㄈ
+\newcommand{\Bopomofo@Symbol@pv}{\textext{\char"312A}}%ㄪ
+% -- t --
+\newcommand{\Bopomofo@Symbol@tq}{\textext{\char"3109}}%ㄉ
+\newcommand{\Bopomofo@Symbol@ta}{\textext{\char"310A}}%ㄊ
+\newcommand{\Bopomofo@Symbol@tn}{\textext{\char"310B}}%ㄋ
+\newcommand{\Bopomofo@Symbol@tl}{\textext{\char"310C}}%ㄌ
+% -- s --
+\newcommand{\Bopomofo@Symbol@sq}{\textext{\char"3117}}%ㄗ
+\newcommand{\Bopomofo@Symbol@sa}{\textext{\char"3118}}%ㄘ
+\newcommand{\Bopomofo@Symbol@sz}{\textext{\char"31A1}}%ㆡ
+\newcommand{\Bopomofo@Symbol@sf}{\textext{\char"3119}}%ㄙ
+% -- r --
+\newcommand{\Bopomofo@Symbol@rq}{\textext{\char"3113}}%ㄓ  
+\newcommand{\Bopomofo@Symbol@ra}{\textext{\char"3114}}%ㄔ
+\newcommand{\Bopomofo@Symbol@rn}{\textmain{\char"31DF}}%
+\newcommand{\Bopomofo@Symbol@rf}{\textext{\char"3115}}%ㄕ  
+\newcommand{\Bopomofo@Symbol@rv}{\textext{\char"3116}}%ㄖ
+%% -- c --
+\newcommand{\Bopomofo@Symbol@cq}{\textext{\char"3110}}%ㄐ
+\newcommand{\Bopomofo@Symbol@ca}{\textext{\char"3111}}%ㄑ
+\newcommand{\Bopomofo@Symbol@cn}{\textext{\char"312C}}%ㄬ
+\newcommand{\Bopomofo@Symbol@cz}{\textext{\char"31A2}}%ㆢ 
+\newcommand{\Bopomofo@Symbol@cf}{\textext{\char"3112}}%ㄒ
+\newcommand{\Bopomofo@Symbol@cv}{\textext{\char"31BA}}%ㆺ
+% -- k --
+\newcommand{\Bopomofo@Symbol@kq}{\textext{\char"310D}}%ㄍ
+\newcommand{\Bopomofo@Symbol@ka}{\textext{\char"310E}}%ㄎ
+\newcommand{\Bopomofo@Symbol@kn}{\textext{\char"312B}}%ㄫ
+\newcommand{\Bopomofo@Symbol@kz}{\textext{\char"31A3}}%ㆣ 
+\newcommand{\Bopomofo@Symbol@kf}{\textext{\char"310F}}%ㄏ
+\newcommand{\Bopomofo@Symbol@kv}{\textext{\char"31B8}}%ㆸ
+% -- h --
+\newcommand{\Bopomofo@Symbol@hq}{\textsz{\char"3007}}%〇
+\newcommand{\Bopomofo@Symbol@hn}{\textext{\char"30F3}}%ン
+\newcommand{\Bopomofo@Symbol@hf}{\textext{\char"310F}}%ㄏ
+\newcommand{\Bopomofo@Symbol@hv}{\textext{\char"31B8}}%ㆸ
+% -- w --
+\newcommand{\Bopomofo@Symbol@wq}{\textext{\char"31BC}}%ㆽ
+\newcommand{\Bopomofo@Symbol@wa}{\textext{\char"31BD}}%ㆼ
+% -- glide i, u, y --
+\newcommand{\Bopomofo@Symbol@i}{\textext{\char"3127}}%ㄧ
+\newcommand{\Bopomofo@Symbol@y}{\textext{\char"3129}}%ㄩ
+\newcommand{\Bopomofo@Symbol@u}{\textext{\char"3128}}%ㄨ
+% -- unknown
+\newcommand{\Bopomofo@Symbol@unknown}{\textmain{？}}%？
+% ---------- End of definition ---------- %
+
+% Rime symbols
+% ---------- Naming Logic ---------- %
+% -- openness -- %
+% cc: close
+% cm: close-mid
+% mm: mid
+% om: open-mid
+% os: semi-open
+% oo: open
+% -- frontness -- %
+% x: retroflex/alveolar syllabic
+% f: front
+% c: central
+% b: back
+% -- roundedness -- %
+% u: unrounded
+% r: rounded
+% -- special rime -- %
+% nc: with nasal coda
+% vc: with vowel coda
+% ---------- Start of definition ---------- %
+% -- cc --
+\newcommand{\Bopomofo@Symbol@ccxu}{\textext{\char"31B3}}%ㆳ
+\newcommand{\Bopomofo@Symbol@ccxr}{\textext{\char"31A8}}%ㆨ
+\newcommand{\Bopomofo@Symbol@ccfu}{\textext{\char"3127}}%ㄧ
+\newcommand{\Bopomofo@Symbol@ccfr}{\textext{\char"3129}}%ㄩ
+\newcommand{\Bopomofo@Symbol@cccu}{\textext{\char"31AA}}%ㆪ 
+\newcommand{\Bopomofo@Symbol@cccr}{\textext{\char"31AB}}%ㆫ
+\newcommand{\Bopomofo@Symbol@ccbu}{\textext{\char"312D}}%ㄭ
+\newcommand{\Bopomofo@Symbol@ccbr}{\textext{\char"3128}}%ㄨ
+% -- cm --
+\newcommand{\Bopomofo@Symbol@cmfu}{\textext{\char"31A4}}%ㆤ
+\newcommand{\Bopomofo@Symbol@cmfr}{\textsz{\char"5EFF}}%廿
+\newcommand{\Bopomofo@Symbol@cmcr}{\textext{\char"31A7}}%ㆧ
+\newcommand{\Bopomofo@Symbol@cmbu}{\textext{\char"311C}}%ㄜ
+\newcommand{\Bopomofo@Symbol@cmbr}{\textext{\char"311B}}%ㄛ 
+% -- mm --
+\newcommand{\Bopomofo@Symbol@mmxu}{\textext{\char"3126}}%ㄦ
+\newcommand{\Bopomofo@Symbol@mmcu}{\textext{\char"312E}}%ㄮ
+% -- om --
+\newcommand{\Bopomofo@Symbol@omfu}{\textext{\char"311D}}%ㄝ
+\newcommand{\Bopomofo@Symbol@omfr}{\textext{\char"31BE}}%ㆾ
+\newcommand{\Bopomofo@Symbol@ombu}{\textext{\char"31A9}}%ㆩ
+\newcommand{\Bopomofo@Symbol@ombr}{\textext{\char"31A6}}%ㆦ
+% -- os --
+\newcommand{\Bopomofo@Symbol@oscu}{\textext{\char"31BF}}%ㆿ
+% -- oo --
+\newcommand{\Bopomofo@Symbol@oofu}{\textext{\char"311A}}%ㄚ
+% -- nc --
+\newcommand{\Bopomofo@Symbol@ncam}{\textext{\char"31B0}}%ㆰ
+\newcommand{\Bopomofo@Symbol@ncan}{\textext{\char"3122}}%ㄢ
+\newcommand{\Bopomofo@Symbol@ncang}{\textext{\char"3124}}%ㄤ
+\newcommand{\Bopomofo@Symbol@ncen}{\textext{\char"3123}}%ㄣ
+\newcommand{\Bopomofo@Symbol@nceng}{\textext{\char"3125}}%ㄥ
+\newcommand{\Bopomofo@Symbol@ncom}{\textext{\char"31B1}}%ㆱ
+\newcommand{\Bopomofo@Symbol@ncong}{\textext{\char"31B2}}%ㆲ
+% -- vc --
+\newcommand{\Bopomofo@Symbol@vcai}{\textext{\char"311E}}%ㄞ
+\newcommand{\Bopomofo@Symbol@vcei}{\textext{\char"311F}}%ㄟ
+\newcommand{\Bopomofo@Symbol@vcoi}{\textext{\char"31AE}}%ㆮ
+\newcommand{\Bopomofo@Symbol@vcooi}{\textsz{\char"3039}}%〹
+\newcommand{\Bopomofo@Symbol@vcau}{\textext{\char"3120}}%ㄠ
+\newcommand{\Bopomofo@Symbol@vceu}{\textext{\char"31AF}}%ㆯ
+\newcommand{\Bopomofo@Symbol@vcou}{\textext{\char"3121}}%ㄡ
+\newcommand{\Bopomofo@Symbol@vcoou}{\textsz{\char"303A}}%〺
+\newcommand{\Bopomofo@Symbol@vciu}{\textext{\char"30E6}}%ユ
+\newcommand{\Bopomofo@Symbol@vcui}{\textext{\char"30F0}}%ヰ
+% -- special syllabic consonants: m, n, ng
+\newcommand{\Bopomofo@Symbol@m}{\textext{\char"3107}}%ㄇ
+\newcommand{\Bopomofo@Symbol@n}{\textext{\char"310B}}%ㄋ
+\newcommand{\Bopomofo@Symbol@ng}{\textext{\char"312B}}%ㄫ
+% -- Suzhou Numerals for expansion
+\expandafter\newcommand\csname Bopomofo@Symbol@1\endcsname{\textsz{\char"3021}}%1
+\expandafter\newcommand\csname Bopomofo@Symbol@2\endcsname{\textsz{\char"3022}}%2
+\expandafter\newcommand\csname Bopomofo@Symbol@3\endcsname{\textsz{\char"3023}}%3
+\expandafter\newcommand\csname Bopomofo@Symbol@4\endcsname{\textsz{\char"3024}}%4
+\expandafter\newcommand\csname Bopomofo@Symbol@5\endcsname{\textsz{\char"3025}}%5
+\expandafter\newcommand\csname Bopomofo@Symbol@6\endcsname{\textsz{\char"3026}}%6
+\expandafter\newcommand\csname Bopomofo@Symbol@7\endcsname{\textsz{\char"3027}}%7
+\expandafter\newcommand\csname Bopomofo@Symbol@8\endcsname{\textsz{\char"3028}}%8
+\expandafter\newcommand\csname Bopomofo@Symbol@9\endcsname{\textsz{\char"3029}}%9
+% ---------- End of definition ---------- %
+
+% Tone symbols
+% ---------- Naming Logic --------- %
+% -- types -- %
+% p: leveling tone 平聲
+% s: rising tone 上聲
+% q: falling tone 去聲
+% r: entering tone 入聲
+% -- classes -- %
+% i: yin 陰調
+% a: yang 陽調
+% z: neutral 中調
+% ---------- Start of definition ---------- %
+% -- tone class --
+\newcommand{\Bopomofo@ToneClass@i}{}%Yin: no marks
+\newcommand{\Bopomofo@ToneClass@a}{\textext{\char"3099}}%Yang: dakuten
+\newcommand{\Bopomofo@ToneClass@z}{\textext{\char"309A}}%Neutral: hanndakuten
+\newcommand{\Bopomofo@ToneClass@unknown}{\textsuperscript{\textmain{？}}}%Unknown: ?
+% -- no coda --
+\newcommand{\Bopomofo@ToneType@p@}{\textext{\char"30FD}}%p
+\newcommand{\Bopomofo@ToneType@s@}{\textmain{\char"31D7}}%s
+\newcommand{\Bopomofo@ToneType@q@}{\textmain{\char"31D5}}%q
+\newcommand{\Bopomofo@ToneType@r@}{\textmain{\char"56D7}}%r
+\newcommand{\Bopomofo@ToneType@r@h}{\textmain{\char"56D7}}%r
+% -- coda m/p --
+\newcommand{\Bopomofo@ToneType@p@m}{\textext{\char"3107}}%ㄇ, tone p of coda m
+\newcommand{\Bopomofo@ToneType@s@m}{\textext{\char"31AC}}%ㆬ, tone s of coda m
+\newcommand{\Bopomofo@ToneType@q@m}{\textext{\char"30DE}}%マ, tone q of coda m
+\newcommand{\Bopomofo@ToneType@r@m}{\textext{\char"3105}}%ㄅ, tone r of coda p
+\newcommand{\Bopomofo@ToneType@r@p}{\textext{\char"3105}}%ㄅ, tone r of coda p
+% -- coda n/t --
+\newcommand{\Bopomofo@ToneType@p@n}{\textext{\char"310B}}%ㄋ, tone p of coda n
+\newcommand{\Bopomofo@ToneType@s@n}{\textext{\char"312F}}%ㄯ, tone s of coda n
+\newcommand{\Bopomofo@ToneType@q@n}{\textext{\char"30CE}}%ノ, tone q of coda n
+\newcommand{\Bopomofo@ToneType@r@n}{\textext{\char"3109}}%ㄉ, tone r of coda t
+\newcommand{\Bopomofo@ToneType@r@t}{\textext{\char"3109}}%ㄉ, tone r of coda t
+% -- coda ng/k --
+\newcommand{\Bopomofo@ToneType@p@ng}{\textext{\char"312B}}%ㄫ, tone p of coda ng
+\newcommand{\Bopomofo@ToneType@s@ng}{\textext{\char"31AD}}%ㆭ, tone s of coda ng
+\newcommand{\Bopomofo@ToneType@q@ng}{\textmain{\char"5143}}%元, tone q of coda ng
+\newcommand{\Bopomofo@ToneType@r@ng}{\textext{\char"310D}}%ㄍ, tone r of coda k
+\newcommand{\Bopomofo@ToneType@r@k}{\textext{\char"310D}}%ㄍ, tone r of coda k
+% -- coda other --
+% accepts tone class and coda
+\newcommand{\Bopomofo@ToneType@p@expanded}[2]{#1#2}%tone p of expanded coda, showing the coda with the tone class
+\newcommand{\Bopomofo@ToneType@s@expanded}[2]{%tone s of expanded coda, showing tone s and coda simultaneously
+	\makebox[1em][l]{\textmain{\char"31D7}#2\kern-0.7em\raisebox{0.5ex}{\scriptsize{#1}}}%
+}%
+\newcommand{\Bopomofo@ToneType@q@expanded}[2]{%tone q of expanded coda, showing tone q and coda simultaneously
+	\makebox[1em][r]{{\raisebox{0ex}{\scriptsize{#1}}\kern-0.7em\textmain{\char"31D5}#2}}%
+}%
+\newcommand{\Bopomofo@ToneType@r@expanded}[2]{%tone r of expanded coda, showing tone r and coda simultaneously
+	\makebox[1em][l]{\textsz{\char"56D7}#2\kern-0.8em\raisebox{0.4ex}{\scriptsize{#1}}}%
+}%
+% -- unknown
+\newcommand{\Bopomofo@ToneType@unknown}{\textext{？}}%
+% ---------- End of definition ---------- %
+
+% TikZ Node definitions
+\newcommand{\TikzNode@Upper@}[1]{%single upper node
+	%\typeout{Upper node went into branch null}%
+	\node[state, text height=1ex, xscale=0.8] at (0, 0) {#1};%
+}%
+\newcommand{\TikzNode@Upper@i}[1]{%upper node with i attached below
+	%\typeout{Upper node went into branch i}%
+	\node[state, text height=1.2ex, yscale=0.4, xscale=0.5, font=\huge] at (0, \AboveTquad) {#1};%The main symbol
+	\node[state, text height=1.5ex, yscale=0.8, xscale=0.5, font=\huge] at (0, \BelowMid) {\textmain{\char"31D0}};% symbol of i
+}%
+\newcommand{\TikzNode@Upper@u}[1]{%upper node with u attached below
+	%\typeout{Upper node went into branch u}%
+	\node[state, text height=1ex, yscale=0.4, xscale=0.5, font=\huge] at (0, \AboveTquad) {#1};%The main symbol
+	\node[state, text height=1ex, yscale=0.3, xscale=0.5, font=\huge] at (0, -0.25) {\textext{\char"30E1}};% symbol of u
+}%
+\newcommand{\TikzNode@Upper@y}[1]{%upper node with y attached below
+	%\typeout{Upper node went into branch y}%
+	\node[state, text height=1ex, yscale=0.4, xscale=0.5, font=\huge] at (0, \AboveTquad) {#1};%The main symbol
+	\node[state, text height=1ex, yscale=0.4, xscale=0.5, font=\huge] at (0, -0.25) {\textmain{\char"51F5}};% symbol of y
+}%
+\newcommand{\TikzNode@Upper@expanded}[2]{%upper node with another symbol attached below
+	%\typeout{Upper node went into branch exp}%
+	\node[state, text height=1ex, yscale=0.5] at (0, \AboveMid) {#1};%
+	\node[state, text height=2ex, yscale=0.5] at (0, 0) {#2};%
+}%
+\makeatother% end of inner commands
+
+\newcommand{\Decorate}[1]{%
+	\expandafter\ifx\csname Bopomofo@Decorate@#1\endcsname\relax%
+		\csname Bopomofo@Decorate@unknown\endcsname%
+	\else%
+		\csname Bopomofo@Decorate@#1\endcsname%
+	\fi%
+}%
+\newcommand{\Symbol}[1]{%
+	\expandafter\ifx\csname Bopomofo@Symbol@#1\endcsname\relax%
+		\csname Bopomofo@Symbol@unknown\endcsname%
+	\else%
+		\csname Bopomofo@Symbol@#1\endcsname%
+	\fi%
+}%
+\newcommand{\bpmf}[1]{%
+	\begingroup%
+	\newcommand{\DecorateCode}{}%code of onset mark
+	\newcommand{\SymbolCode}{}%code of onset symbol
+	\IfSubStr{#1}{,}{%
+		\StrBefore{#1}{,}[\SymbolCode]%
+		\StrBehind{#1}{,}[\DecorateCode]%
+	}{%
+		\renewcommand{\SymbolCode}{#1}%
+		\renewcommand{\DecorateCode}{o}%
+	}%
+	\Symbol{\SymbolCode}%
+	\Decorate{\DecorateCode}%
+	\endgroup%
+}%
+\newcommand{\ToneClass}[1]{% get tone class symbol
+	\expandafter\ifx\csname Bopomofo@ToneClass@#1\endcsname\relax%
+		\csname Bopomofo@ToneClass@unknown\endcsname%
+	\else%
+		\csname Bopomofo@ToneClass@#1\endcsname%
+	\fi%
+}%
+\newcommand{\ToneCoda}[3]{%type, class, coda
+	\begingroup%
+	\expandafter\ifx\csname Bopomofo@ToneType@#1@\endcsname\relax%
+		%\typeout{Tone analyzed as unknown}%
+		\csname Bopomofo@ToneType@unknown\endcsname\ToneClass{#2}%
+	\else%
+		\expandafter\ifx\csname Bopomofo@ToneType@#1@#3\endcsname\relax%
+			%\typeout{Tone analyzed as expanded coda}%
+			\csname Bopomofo@ToneType@#1@expanded\endcsname{\bpmf{#3}}{\ToneClass{#2}}%
+		\else%
+			%\typeout{Tone analyzed as well-defined coda}%
+			\csname Bopomofo@ToneType@#1@#3\endcsname\ToneClass{#2}%
+		\fi%
+	\fi%
+	\endgroup%
+}%
+\newcommand{\ToUpperNode}[2]{%To upper node, #1: main, #2: attached
+	\begingroup%
+	\expandafter\ifx\csname TikzNode@Upper@#2\endcsname\relax%
+		\csname TikzNode@Upper@expanded\endcsname{\bpmf{#1}}{\bpmf{#2}}%
+	\else%
+		\csname TikzNode@Upper@#2\endcsname{\bpmf{#1}}%
+	\fi%
+	\endgroup%
+}%
+\newcommand{\ToLowerNode}[3]{%To lower node, coda-2 and tone
+	\node[state, text height=2ex, xscale=0.8] at (0, 0) {\ToneCoda{#1}{#2}{#3}};%
+}%
+
+%TikZ boxes
+%% The main frame
+\newcommand{\glyphframe}[1]{%
+	\begin{tikzpicture}[baseline=-0.25em, x=1em, y=1em]%
+		\path[use as bounding box] (-0.5, -0.5) rectangle (0.5, 0.5);%
+		%\draw (current bounding box.south west) rectangle (current bounding box.north east);%
+		%\fill[white] (current bounding box.south west) rectangle (current bounding box.north east);%
+		#1%
+	\end{tikzpicture}%
+}
+%%Layout logic
+\newcommand{\SuvLogic}[2]{%兩個上下疊Stack(u, v)
+	\coordinate (AboveCenter) at (0, \AboveMid);%
+	\coordinate (BelowCenter) at (0, \BelowMid);%
+	\begin{scope}[shift={(AboveCenter)}, transform canvas={yscale=0.4, xscale=0.75}]%
+		#1%
+	\end{scope}%
+	\begin{scope}[shift={(BelowCenter)}, transform canvas={yscale=0.4, xscale=0.75}]%
+		#2%
+	\end{scope}%
+}%
+\newcommand{\SJuvwLogic}[3]{%外層上下疊，上方左右拼Stack(Join(u, v), w)
+	\coordinate (LeftAboveCenter) at (\LeftMid, \AboveMid);%
+	\coordinate (RightAboveCenter) at (\RightMid, \AboveMid);%
+	\coordinate (BelowCenter) at (0, \BelowMid);%
+	\begin{scope}[shift={(LeftAboveCenter)}, transform canvas={xscale=0.5, yscale=0.5}]%
+		#1%
+	\end{scope}%
+	\begin{scope}[shift={(RightAboveCenter)}, transform canvas={xscale=0.5, yscale=0.5}]%
+		#2%
+	\end{scope}%
+	\begin{scope}[shift={(BelowCenter)}, transform canvas={yscale=0.4, xscale=0.75}]%
+		#3%
+	\end{scope}%
+}%
+
+%%subglyph
+\newcommand{\SubGlyph}[7]{%
+	% #1, #2: onset and glide
+	% #3: nucleus
+	% #4: coda1, rarely used, supporting some languages with complicated rime
+	% #5: coda2, commonly used
+	% #6: tone type: psqr
+	% #7: tone class: iaz
+	\begingroup
+	\newcommand{\OnsetPlace}{}%
+	\newcommand{\RimePlace}{\ToUpperNode{#3}{#4}}%
+	\newcommand{\TonePlace}{\ToLowerNode{#6}{#7}{#5}}%
+	\newcommand{\TikzLayout}{}%Final output
+	\IfStrEq{#1}{}{%無聲母
+		\IfStrEq{#2}{}{%無介音
+			\renewcommand{\TikzLayout}{\glyphframe{\SuvLogic{\RimePlace}{\TonePlace}}}%
+		}{%有介音
+			\renewcommand{\OnsetPlace}{\ToUpperNode{#2}{}}%
+			\renewcommand{\TikzLayout}{\glyphframe{\SJuvwLogic{\OnsetPlace}{\RimePlace}{\TonePlace}}}%
+		}%
+	}{%有聲母
+		\renewcommand{\OnsetPlace}{\ToUpperNode{#1}{#2}}%
+		\renewcommand{\TikzLayout}{\glyphframe{\SJuvwLogic{\OnsetPlace}{\RimePlace}{\TonePlace}}}%
+	}%
+	\TikzLayout%
+	\endgroup%
+}
+
+\endinput

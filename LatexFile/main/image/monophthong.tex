@@ -1,0 +1,108 @@
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[
+		node distance=1.6cm, % 節點間距，可調整
+		state/.style={ % 定義節點樣式
+			%draw, % 繪製邊框
+			%circle, % 圓形
+			minimum height=0.4cm, % 最小尺寸
+			minimum width=3cm, 
+			align=center, % 文字居中
+			thick, % 邊框粗細
+			font=\bfseries, % 字體加粗
+			scale=0.7,
+		},
+		transition/.style={ % 定義轉換箭頭樣式
+			-{Stealth[scale=1.2]}, % 現代箭頭樣式
+			thick, % 線條粗細
+			shorten >=2pt, % 縮短箭頭，避免碰到圓圈邊緣
+			shorten <=2pt % 縮短尾部，避免碰到圓圈邊緣
+		},
+		condition/.style={ % 定義條件標籤樣式
+			font=\small, % 字體較小
+			align=center % 文本居中
+		}
+	]
+		%back vowels
+		\node[state] (CloseBack) {/ɯ/ {\bpmf{ccbu}} - /u/ {\bpmf{ccbr}}}; 
+		\node[state, below=0.4cm of CloseBack] (SemiCloseBack){};
+		\node[state, below=0.4cm of SemiCloseBack] (CloseMidBack) {/ɤ/ {\bpmf{cmbu}} - /o/ {\bpmf{cmbr}}}; 
+		\node[state, below=0.4cm of CloseMidBack] (MidBack){};
+		\node[state, below=0.4cm of MidBack] (OpenMidBack) {/ʌ/ {\bpmf{ombu}} - /ɔ/ {\bpmf{ombr}}};
+		\node[state, below=0.4cm of OpenMidBack] (SemiOpenBack){};
+		\node[state, below=0.8cm of SemiOpenBack] (OpenBack) {/ɑ/ 　 - /ɒ/ 　};
+		
+		\draw (CloseBack) -- (CloseMidBack);
+		\draw (CloseMidBack) -- (OpenMidBack);
+		\draw (OpenMidBack) -- (OpenBack);
+	
+		%central vowels
+		\node[state, left=of CloseBack] (CloseCentral) {/ɨ/ {\bpmf{cccu}} - /ʉ/ {\bpmf{cccr}}};
+		\node[state, left=1.5cm of SemiCloseBack] (SemiCloseCentral){};
+		\node[state, left=1.4cm of CloseMidBack] (CloseMidCentral) {/ɘ/ 　 - /ɵ/ {\bpmf{cmcr}}};
+		\node[state, left=1.3cm of MidBack] (MidCentral) {/ə/ {\bpmf{mmcu}}};
+		\node[state, left=1.2cm of OpenMidBack] (OpenMidCentral) {/ɜ/ 　 - /ɞ/ 　};
+		\node[state, left=1.1cm of SemiOpenBack] (SemiOpenCentral) {/ɐ/ {\bpmf{oscu}}};
+		\node[state, left=1.0cm of OpenBack] (OpenCentral) {/ä/ 　 - /ɶ̈/ 　};
+		
+		\draw (CloseBack) -- (CloseCentral);
+		\draw (CloseMidBack) -- (CloseMidCentral);
+		\draw (OpenMidBack) -- (OpenMidCentral);
+		\draw (OpenBack) -- (OpenCentral);
+		\draw (CloseCentral) -- (CloseMidCentral);
+		\draw (CloseMidCentral) -- (MidCentral);
+		\draw (MidCentral) -- (OpenMidCentral);
+		\draw (OpenMidCentral) -- (SemiOpenCentral);
+		\draw (SemiOpenCentral) -- (OpenCentral);
+		
+		%front vowels
+		\node[state, left=of CloseCentral] (CloseFront) {/i/ {\bpmf{ccfu}} - /y/ {\bpmf{ccfr}}};
+		\node[state, left=1.4cm of SemiCloseCentral] (SemiCloseFront) {};
+		\node[state, left=1.2cm of CloseMidCentral] (CloseMidFront) {/e/ {\bpmf{cmfu}} - /ø/ {\bpmf{cmfr}}};
+		\node[state, left=1.0cm of MidCentral] (MidFront) {};
+		\node[state, left=0.8cm of OpenMidCentral] (OpenMidFront) {/ɛ/ {\bpmf{omfu}} - /œ/ {\bpmf{omfr}}};
+		\node[state, left=0.6cm of SemiOpenCentral] (SemiOpenFront) {};
+		\node[state, left=0.4cm of OpenCentral] (OpenFront) {/a/ {\bpmf{oofu}} - /ɶ/ 　};
+		
+		\draw (CloseCentral) -- (CloseFront);
+		\draw (CloseMidCentral) -- (CloseMidFront);
+		\draw (OpenMidCentral) -- (OpenMidFront);
+		\draw (OpenCentral) -- (OpenFront);
+		\draw (CloseFront) -- (CloseMidFront);
+		\draw (CloseMidFront) -- (OpenMidFront);
+		\draw (OpenMidFront) -- (OpenFront);
+		
+		% retroflex vowels
+		\node[state, left=of CloseFront] (CloseRetroflex) {/ɿ,ʅ/ {\bpmf{ccxu}} - /ʮ,ʯ/ {\bpmf{ccxr}}};
+		\node[state, left=1.4cm of SemiCloseFront] (SemiCloseRetroflex) {};
+		\node[state, left=1.2cm of CloseMidFront] (CloseMidRetroflex) {/ᶒ/ 　}; 
+		\node[state, left=1.0cm of MidFront] (MidRetroflex) {/ᶕ/ {\bpmf{mmxu}}};
+		\node[state, left=0.8cm of OpenMidFront] (OpenMidRetroflex) {/ᶓ/ 　};
+		\node[state, left=0.6cm of SemiOpenFront] (SemiOpenRetroflex) {};
+		\node[state, left=0.4cm of OpenFront] (OpenRetroflex) {/ᶏ/ 　};
+		
+		\draw (CloseFront) -- (CloseRetroflex);
+		\draw (CloseMidFront) -- (CloseMidRetroflex); 
+		\draw (OpenMidFront) -- (OpenMidRetroflex);
+		\draw (OpenFront) -- (OpenRetroflex); 
+		\draw (CloseRetroflex) -- (CloseMidRetroflex);
+		\draw (CloseMidRetroflex) -- (MidRetroflex);
+		\draw (MidRetroflex) -- (OpenMidRetroflex);
+		\draw (OpenMidRetroflex) -- (OpenRetroflex);
+		
+		%labels
+		\node[state, above=0.4cm of CloseFront] (LabelFront) {f};
+		\node[state, above=0.4cm of CloseCentral] (LabelCentral) {c};
+		\node[state, above=0.4cm of CloseBack] (LabelBack) {b};
+		\node[state, above=0.4cm of CloseRetroflex] (LabelRetroflex) {x};
+		\node[state, right=0.2cm of CloseBack] (LabelClose) {cc};
+		\node[state, right=0.2cm of CloseMidBack] (LabelCloseMid) {cm};
+		\node[state, right=0.2cm of MidBack] (LabelMid) {m};
+		\node[state, right=0.2cm of OpenMidBack] (LabelOpenMid) {om};
+		\node[state, right=0.2cm of SemiOpenBack] (LabelSemiOpen) {os};
+		\node[state, right=0.2cm of OpenBack] (LabelOpen) {oo};
+	
+	\end{tikzpicture}
+	\caption{單元音舌位圖}
+	\label{fig:SingleVowels}
+\end{figure}

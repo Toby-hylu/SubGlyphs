@@ -1,0 +1,40 @@
+\section{拼合}
+\subsection{基本層}
+定義在SGBasic.sty的底層拼合命令為：\par
+{\textbackslash}SubGlyph\{聲母\}\{介音\}{\{}韻腹{\}}\{韻尾一\}\{韻尾二\}{\{}調型{\}}{\{}調類{\}}。\par
+用不到的部分直接在花括號中間留空，以下說明各個部件的格式。\par
+\begin{itemize}
+	\item 聲母：同聲母部分
+	\item 介音：直接寫i、u、y或留空。
+	\item 韻腹：同韻母部分。
+	\item 擴展韻尾：顯示為與韻母拼合的韻尾，一般是offglide形式的i, u, y。
+	\item 韻尾二：顯示為與聲調耦合的韻尾。
+	\item 調型、調類：同聲調部分。
+\end{itemize}
+以下是示例表，以聲母\Symbol{pq}、韻母\Symbol{oofu}為例。\par
+\input{table/FullGlyphExample.tex}%
+
+\subsection{映射層}
+底層命令過於繁瑣。例如，漢語拼音的「xióng」，需要歷經如下推導過程：
+\begin{itemize}
+	\item x對應聲母「\bpmf{cf}」，其主碼為cf；
+	\item iong是一個不透明拼式，等效於「ü+eng」，應拆解為「\bpmf{y}」與「\bpmf{nceng}」，其主碼分別為y與nceng；
+	\item 華語的二聲對應陽平，其調型碼為p，調類碼為a；
+	\item 組合以上資訊，調用代碼為\detokenize{\SubGlyph{cf}{y}{nceng}{}{}{p}{a}}，效果為\SubGlyph{cf}{y}{nceng}{}{}{p}{a}。
+\end{itemize}
+有鑑於此，package內提供了六種語言的範例及接口sty檔案SubGlyph.sty。只需要了解拼式的聲韻調分別是哪些，即可自動產生對應的通用拼合式注音，例如：\detokenize{\ToSubGlyph{Hanpin}{x}{iong}{2}}直接得到\ToSubGlyph{Hanpin}{x}{iong}{2}。\par
+以下是六種語言的拼字示例。如有疏漏，敬請母語者不吝賜教。\par
+\input{table/LanguageGlyph.tex}%
+作者也提供了python腳本，只需要整理該語言的羅馬字方案並參考寫好的檔案撰寫配置檔，即可自動產生對應的sty檔案。腳本會自動更新頂層的接口檔案SubGlyph.sty，不需要手動新增\detokenize{\usepackage{SGYoursystem.sty}}。為了防止撞名，建議命名方式為：\par
+\begin{itemize}
+	\item 若該拼音方案標準化程度高，請直接使用該語言的簡稱加上該語言「拼」或「羅」的讀音，例如「Jyutping（粵拼）」、「Tailo（台羅）」、「Hanpin（漢拼）」。
+	\item 若該拼音方案屬於一個大類的子方案，請在後面加上地域名稱在該方案中的拼式，例如「WuphinSoutseu（吳拼蘇州）」、「HagpinXiian（客拼四縣）」。華語音節組合少，羅馬化後極易重名，所以若您的語言羅馬字方案與漢語拼音有所差異，請直接使用該方案書寫地域名稱。
+\end{itemize}
+
+\subsection{混合排版示例}
+\begin{itemize}
+	\item 華語：「和」讀音異常複雜，有\ToSubGlyph{Hanpin}{h}{an}{4}、\ToSubGlyph{Hanpin}{h}{e}{2}、\ToSubGlyph{Hanpin}{h}{uo}{4}、\ToSubGlyph{Hanpin}{h}{u}{2}、\ToSubGlyph{Hanpin}{h}{e}{4}等讀音。
+	\item 台語：伊佇\ToSubGlyph{Tailo}{h}{ia}{1}毋知企偌久矣。
+\end{itemize}
+
+\clearpage
