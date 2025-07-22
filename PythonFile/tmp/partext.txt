@@ -1,1 +1,1 @@
-台語白讀的\ToSubGlyph{Tailo}{ts}{it}{8}與福州話的\ToSubGlyph{Yngping}{s}{uoh}{8}都帶了一個噝音聲母，這明顯與其他語言不同。
+\ToSubGlyph{Tailo}{ts}{e}{1}是一段台語\ToSubGlyph{Tailo}{o}{e}{7}排版示範，零聲母寫作聲門塞音：你是毋知影伊有偌\ToSubGlyph{Tailo}{g}{au}{5}。頂\ToSubGlyph{Tailo}{p}{ai}{2}伊點\ToSubGlyph{Tailo}{o}{e}{7}飲料，我\ToSubGlyph{Tailo}{m}{a}{8}去點一杯來試看覓，哎唷，酸\ToSubGlyph{Tailo}{ng}{iu}{3}\ToSubGlyph{Tailo}{ng}{iu}{3}。實在毋知伊\ToSubGlyph{Tailo}{n}{a}{2}\ToSubGlyph{Tailo}{o}{e}{7}啉\ToSubGlyph{Tailo}{o}{e}{7}落。

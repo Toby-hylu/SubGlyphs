@@ -1,10 +1,11 @@
 import SubGlyph as sg
 
+# sg.SGTailo()
+# sg.makeSingle('Tailo', 's', 'iunn', '7')
 
-sg.makeSingle('Tailo', 's', 'iunn', '7')
 
-"""
 sg.makePar('tmp/partext.txt')
+"""
 sg.makeSpan(
   system='Hanpin', 
   onset_list=['b', 'p', 'm', 'f'], 

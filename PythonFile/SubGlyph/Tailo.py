@@ -34,6 +34,7 @@ def SGTailo():
     'g'   : 'kq,v',                     # g   = voiced velar plosive
     
     'h'   : 'hf'  ,                     # h   = voiceless glottal fricative
+    'o'   : 'hq'  ,                     # o   = voiceless glottal plosive
   }
   # ------------------------------------#------------------------------------- #
   # ------------------------------------#------------------------------------- #
