@@ -1,0 +1,165 @@
+\documentclass[12pt]{article}
+
+% Please typeset with XeLaTeX
+
+% Chinese package
+\usepackage{ctex}
+\usepackage{ruby}
+
+% Latin fonts
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\setsansfont{Arial Narrow}
+\setmonofont{Courier New}
+
+% Character fonts
+\setCJKmainfont{TW-Kai-98_1}
+\setCJKsansfont{Noto Sans CJK TC}
+
+% page settings
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+% \pagestyle{plain}
+
+% titlesec
+\usepackage{titlesec}
+\titleformat{\section}
+	{\normalfont\fontsize{16}{19.2}\bfseries}
+	{\thesection}
+	{1em}
+	{}
+
+\titleformat{\subsection}
+	{\normalfont\fontsize{14}{16.8}\bfseries}
+	{\thesubsection}
+	{1em}
+	{}
+
+\titleformat{\subsubsection}
+	{\normalfont\fontsize{12}{14.4}\bfseries}
+	{\thesubsubsection}
+	{1em}
+	{}
+
+\titleformat{\paragraph}
+	{\normalfont\fontsize{12}{14.4}\normalfont}
+	{\theparagraph}
+	{1em}
+	{}
+
+\titleformat{\subparagraph}
+  {\normalfont\normalsize\normalfont}
+  {\thesubparagraph}
+  {1em}
+  {}
+
+\titlespacing{\section}{0pt}{2pt}{4pt}
+
+% other packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{tipa} 
+\usepackage{comment}
+
+% no indent
+\setlength{\parindent}{0pt}
+
+% section rename
+\renewcommand{\thesection}{第\arabic{section}章}
+\renewcommand{\thesubsection}{第\arabic{section}.\arabic{subsection}節}
+\numberwithin{equation}{section}
+
+% head, foot and page styles
+\usepackage{fancyhdr} 
+\setlength{\headheight}{14.5pt}
+\fancyhf{}
+\lhead{SubGlyphs}
+\chead{HyLu}
+\rhead{通用拼合注音字系統}
+\cfoot{\thepage}
+
+%head
+\pagestyle{fancy}
+
+% add section number to math
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+
+% tabularX settings
+\usepackage{tabularx}
+\usepackage[table]{xcolor}
+\usepackage{xstring}
+\usepackage{xparse}
+\usepackage{array}
+\newcolumntype{L}{ >{\raggedright\arraybackslash}X }
+\newcolumntype{C}{ >{\centering\arraybackslash}X }
+\newcolumntype{R}{ >{\raggedleft\arraybackslash}X }
+
+% Gray table
+\newcommand{\MaybeGray}[1]{%
+	\IfStrEq{#1}{N/A}{\cellcolor{gray!60}N/A}{%
+		\IfStrEq{#1}{}{ \cellcolor{gray!60} }{#1}%
+	}%
+}
+
+% Macro for table generating
+\NewDocumentCommand{\MyTable}{m m m m}{
+	\begin{table}[h!]
+		\centering
+		\caption{#1}
+		\label{#2}
+		\par \noindent
+		\begin{tabularx}{\textwidth}{|#3|}
+			\hline
+			#4
+			\hline
+		\end{tabularx}
+		\par
+	\end{table}
+}
+
+% Fig, Tab settings
+\renewcommand{\figurename}{Figure}
+\renewcommand{\tablename}{Table}
+
+% tikz package
+\usepackage{tikz}
+\usepackage{calc}
+\usetikzlibrary{arrows.meta, positioning, quotes}
+
+% subglyphs package
+\makeatletter%
+\def\input@path{{../../package/}}
+\makeatother%
+\usepackage{SubGlyph}
+
+% item settings
+\usepackage{enumitem}
+\setlist[itemize]{itemsep=0pt}
+
+\begin{document}
+% 文章內容
+
+%自定義大標題
+\begin{center}
+    {\Huge \textbf{SubGlyphs: 通用拼合注音字系統} \par}
+    {\Large HyLu \par}
+    \hrulefill
+\end{center}
+\input{section/Introduction.tex}
+\input{section/Onset.tex}
+\input{section/Rime.tex}
+\input{section/Tone.tex}
+\input{section/GlyphRule.tex}
+\input{section/Conclusion.tex}
+
+\end{document}
