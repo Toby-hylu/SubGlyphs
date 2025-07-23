@@ -1,0 +1,40 @@
+\section{Stacking}
+\subsection{Basic Layer}
+Basic stacking macro defined in SGBasic.sty is as below: \par
+{\textbackslash}SubGlyph\{Onset\}\{Glide\}{\{}Nucleus{\}}\{Coda extended\}\{coda\}{\{}Tone type{\}}{\{}Tone class{\}}。\par
+Please leave empty brackets for non-used part. The parts are introduced below: \par
+\begin{itemize}
+	\item Onset: onset symbol code
+	\item Glide: write i, u or y, or leave it empty
+	\item Nucleus: rime symbol code
+	\item Coda extended: off-glide i, u, y if there is another coda
+	\item Coda: coda coupled with tone
+	\item Tone type and tone class: tone symbol
+\end{itemize}
+Below is the example of onset \Symbol{pq}, rime \Symbol{oofu}. \par
+\input{table/FullGlyphExample.tex}%
+
+\subsection{Mapping Layer}
+The basic layer macro is too complicated. For instance, one has to derive SuGlyphs of 'xióng' in Hanyu Pinyin as below: 
+\begin{itemize}
+	\item x for onset '\bpmf{cf}', main-code of which is cf. 
+	\item iong is intransparent, equivalent to 'ü+eng', which should be separated to '\bpmf{y}'  and '\bpmf{nceng}' with main-code 'y' and 'nceng'. 
+	\item Tone 2 is Yang leveling, with tone type 'p' and tone class 'a'. 
+	\item From above, it is \detokenize{\SubGlyph{cf}{y}{nceng}{}{}{p}{a}}, which will be displayed as \SubGlyph{cf}{y}{nceng}{}{}{p}{a}. 
+\end{itemize}
+Thus, the package provides six examples of languages and an interface SubGlyph.sty. If understanding the onset, rime and tone of the romanization system, one may directly produce the SubGlyph with interface macro. For example: \detokenize{\ToSubGlyph{Hanpin}{x}{iong}{2}} will be displayed as \ToSubGlyph{Hanpin}{x}{iong}{2} as well. \par
+Below are examples of the six language provided. Please contact me if there is any mistake. \par
+\input{table/LanguageGlyph.tex}%
+I provided python script as well. Once you refer to the .py files to write your own romanization system, the .sty file may be generated automatically. The script also updates the interface SubGlyph.sty, and you do not have to write \detokenize{\usepackage{SGYoursystem.sty}}. To avoid name clash, I recommend you to name your system as: \par
+\begin{itemize}
+	\item If the system is highly standardized, please use the abbreviated name of the language and the pronunciation of '拼' or '羅' in your language, like 'Jyutping (粵拼)', 'Tailo (台羅)', 'Hanpin (漢拼)'. 
+	\item If the system is a subsystem of a large system, please attach the region name of the subsystem. For example, 'WuphinSoutseu (吳拼蘇州)', 'HagpinXiian (客拼四縣)'. Please do not use Hanyu Pinyin region name if the system has different spelling to further avoid name clash. 
+\end{itemize}
+
+\subsection{Example of Mixed Typestting}
+\begin{itemize}
+	\item Mandarin: 「和」讀音異常複雜，有\ToSubGlyph{Hanpin}{h}{an}{4}、\ToSubGlyph{Hanpin}{h}{e}{2}、\ToSubGlyph{Hanpin}{h}{uo}{4}、\ToSubGlyph{Hanpin}{h}{u}{2}、\ToSubGlyph{Hanpin}{h}{e}{4}等讀音。(The pronunciation of '和' is extremely complicated. There are ...)
+	\item Taiwanese：伊佇\ToSubGlyph{Tailo}{h}{ia}{1}毋知企偌久矣。(Nobody knows how long he has been standing there. )
+\end{itemize}
+
+\clearpage

@@ -1,0 +1,34 @@
+\section{Onsets}
+The macro for onset glyphs is {\textbackslash}bpmf\{Main-code,Sub-code\}, defined in SGBasic.sty. \par
+\begin{itemize}
+	\item Main-code: fill the symbol codes shown below, Place of articulation first and then manner. For instance, {\textbackslash}bpmf\{pq\} represents \bpmf{pq}. A Question mark will be displayed if it fails to parse the main-code. 
+	\item Sub-code: Please omit it or use o if no diacritical symbols is needed. Dakuten is v and hann-dakuten is e. The case of failing to parse is a superscript question mark. Only the 'half-wdith' comma is accepted. 
+\end{itemize}
+Glottal nasal is an impossible phoneme in IPA. Since in some languages the nasalization of vowel shares the same function as normal nasal consonant, I utilize this grid to represent 'Nasalization as the function of coda'. \par
+\MyTable{Table of Onset}{tab:Onset}{c|C|C|C|C|C|C|C|C}{
+	Manner{\textbackslash}Place & bilabial p & alveolar t & alveolar s & post-alveolar c & retroflex r & velar k & glottal h & labio-velar w \\
+	\hline
+	Tenius q & {\bpmf{pq}} & {\bpmf{tq}} & {\bpmf{sq}} & {\bpmf{cq}} & {\bpmf{rq}} & {\bpmf{kq}} & {\bpmf{hq}} & {\bpmf{wq}} \\
+	\hline
+	Aspirated a & {\bpmf{pa}} & {\bpmf{ta}} & {\bpmf{sa}} & {\bpmf{ca}} & {\bpmf{ra}} & {\bpmf{ka}} & \MaybeGray{} & {\bpmf{wa}} \\
+	\hline
+	Voiced q,v & {\bpmf{pq,v}} & {\bpmf{tq,v}} & {\bpmf{sq,v}} & {\bpmf{cq,v}} & {\bpmf{rq,v}} & {\bpmf{kq,v}} & \MaybeGray{} & {\bpmf{wq,v}} \\
+	Voiced z & {\bpmf{pz}} & {} & {\bpmf{sz}} & {\bpmf{cz}} & {} & {\bpmf{kz}} & \MaybeGray{} & {} \\
+	\hline
+	Nasal n & {\bpmf{pn}} & {\bpmf{tn}} & \MaybeGray{} & {\bpmf{cn}} & {\bpmf{rn}} & {\bpmf{kn}} & ({\bpmf{hn}}) & {} \\
+	\hline
+	Lateral l & \MaybeGray{} & {\bpmf{tl}} & \MaybeGray{} & {} & {} & {} & \MaybeGray{} & \MaybeGray{} \\
+	\hline
+	Voiceless f & {\bpmf{pf}} & \multicolumn{2}{c|}{\bpmf{sf}} & {\bpmf{cf}} & {\bpmf{rf}} & \multicolumn{2}{c|}{\bpmf{kf}} & {} \\
+	\hline
+	Voiced f,v & {\bpmf{pf,v}} & \multicolumn{2}{c|}{\bpmf{sf,v}} & {\bpmf{cf,v}} & {\bpmf{rf,v}} & \multicolumn{2}{c|}{\bpmf{kf,v}} & {} \\
+	Voiced v & {\bpmf{pv}} & \multicolumn{2}{c|}{} & {\bpmf{cv}} & {\bpmf{rv}} & \multicolumn{2}{c|}{\bpmf{kv}} & {} \\
+}
+In some languages, half-vowel are viewed as onsets. Despite, Bopomofo does not differ half-vowel with its vowel counterpart. Therefore, I use the symbols of the vowels for glides. It might be modified if there is any expansion of change in the future. \par
+\begin{itemize}
+	\item {\textbackslash}bpmf\{i\} = \bpmf{i}；
+	\item {\textbackslash}bpmf\{u\} = \bpmf{u}；
+	\item {\textbackslash}bpmf\{y\} = \bpmf{y}。
+\end{itemize}
+
+\clearpage

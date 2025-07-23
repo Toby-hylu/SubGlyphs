@@ -1,0 +1,17 @@
+\section{Tone and Coda}
+The macro for tones is {\textbackslash}ToneCoda\{Tone Type\}\{Tone Class\}\{Coda\}. It is defined in SGBasic.sty. The symbols follow the rules below: \par
+\begin{itemize}
+	\item Tone type: Leveling, rising, falling and entering are p, s, q and r, respectively. 
+	\item Tone class: yin, yang and neutral are i, a and z respectively. Neutral means it is an expanded tone from other tones, and does not indicate that the 'yin' or 'yang' tone class is unspecified. For instance, 'Down Yin entering' in Cantonese will be recorded as 'Neutral Entering Tone', or 'p, z'.
+	\item Coda: m, n and ng can be used in all four tone types and will be transformed to p, t, k when they encounters entering tone. Meanwhile, p, t, k codas are used in Entering tone only, and use them to match any other tones will fail to parse. If required, please use the symbol code in this and there will be expanded tone-coda form, like the example of 'nasalization as special coda' provided in the table below。
+\end{itemize}
+\MyTable{Combination of Tone and Coda}{tab:ToneCoda}{c|C|C|C|C}{
+	Coda{\textbackslash}Tone & Leveling & Rising & Falling & Entering \\
+	\hline
+	Empty & \ToneCoda{p}{i}{} & \ToneCoda{s}{i}{} & \ToneCoda{q}{i}{} & \ToneCoda{r}{i}{} \\
+	Labial & \ToneCoda{p}{i}{m} & \ToneCoda{s}{i}{m} & \ToneCoda{q}{i}{m} & \ToneCoda{r}{i}{m} \\
+	Coronal & \ToneCoda{p}{i}{n} & \ToneCoda{s}{i}{n} & \ToneCoda{q}{i}{n} & \ToneCoda{r}{i}{n} \\
+	Dorsal & \ToneCoda{p}{i}{ng} & \ToneCoda{s}{i}{ng} & \ToneCoda{q}{i}{ng} & \ToneCoda{r}{i}{ng} \\
+	Nasalized & \ToneCoda{p}{i}{hn} & \ToneCoda{s}{i}{hn} & \ToneCoda{q}{i}{hn} & \ToneCoda{r}{i}{hn} \\
+}
+\clearpage

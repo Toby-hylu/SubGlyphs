@@ -1,0 +1,24 @@
+\section{Rime}
+\subsection{Single vowel}
+The macro for rimes is {\textbackslash}bpmf\{main-code,sub-code\}. It is defined in SGBasic.sty。\par
+\begin{itemize}
+	\item Main-code: Openess (Two letters), Backness(One letter), Roundedness (One letter). For example, 'Close Front Unrounded Vowel (\bpmf{ccfu})' is {\textbackslash}bpmf\{ccfu\}. If they are not enough, please fill main-code with arabic 1~9 and use Suzhou numeral as temporary symbols. 
+	\item Sub-code: Same with Onset part. 
+\end{itemize}
+The symbols for nasalized vowels in Bopomofo Extanded are used as other normal vowels. It is because one may either use nasalization-coda or use sub-code to decorate normal vowels to represent its nasalized counterpart. This system use normal consonant symbols for syllabic consonants, as most Romanization systems do. \par
+\input{../image/monophthong.tex}
+
+\subsection{diphthongs}
+The nasalized rimes are also used for other pre-combined rimes. \par
+\MyTable{預組元音}{tab:Precombined}{c|c|C|C|C|C|C|C}{
+	Start of main-code & coda | nucleus & {\bpmf{oofu}}a & {\bpmf{omfu}}e & {\bpmf{cmbr}}o & {\bpmf{ombr}}oo & {\bpmf{ccfu}}i & {\bpmf{ccbr}}u \\
+	\hline
+	vc & {\bpmf{ccfu}}i & {\bpmf{vcai}} & {\bpmf{vcei}} & {\bpmf{vcoi}} & {\bpmf{vcooi}} & \MaybeGray{} & {\bpmf{vcui}} \\
+	vc & {\bpmf{ccbr}}u & {\bpmf{vcau}} & {\bpmf{vceu}} & {\bpmf{vcou}} & {\bpmf{vcoou}} & {\bpmf{vciu}} & \MaybeGray{} \\
+	\hline
+	nc & {\bpmf{pn}}m & {\bpmf{ncam}} & {} & {\bpmf{ncom}} & {} & {} & {} \\
+	nc & {\bpmf{tn}}n & {\bpmf{ncan}} & {\bpmf{ncen}} & {} & {} & {} & {} \\
+	nc & {\bpmf{kn}}ng & {\bpmf{ncang}} & {\bpmf{nceng}} & {\bpmf{ncong}} & {} & {} & {} \\
+}%
+
+\clearpage

@@ -1,0 +1,38 @@
+\section*{Introduction}
+
+There are many East asian tonal languages using Han characters as their writing system, either is in or influenced strongly by Sinitic languages. Despite, only Mandarin, as an official language, has stable, mature and common writing system. Some quasi official languages like Taiwanese, Hakka and Cantonese, have developed a convention writing standard. But they are still facing some problems. \par
+When adopting pure Han character writing system, the main problem goes to those words without conventional characters: \par
+\begin{itemize}
+	\item New characters: Cantonese writing system tends to use this method, like '嚟'. Usually they are created with a '口' and a phonetic component. Though the phone is mostly correct, the character is sometimes complicated, and new words may not be supported by Unicode.  
+	\item Character with similar Mandarin phone: Taiwanese writing system tends to use simple characters with this feature, like '袂'. Despite, these characters are neither correct in pronunciation nor related in meaning. 
+	\item Character with the same pronunciation in Taiwanese: also a common method in Taiwanese writing system, like '魯肉飯' (Minced meat rice), but may leads to misunderstanding. For instance this was once translated as 'Shandong meat rice', since he thought '魯' stands for Shandong province. 
+	\item Original character: It seems to be the best method. Nevertheless, some languages have words either without Sinitic origin or the original character is difficult to read and write. For instance, more than 80\% people does not know character '藨' (wild berries), which is the original character of Taiwanese 'pho' in word 'tsì-pho'. 
+\end{itemize}
+When adopting pure latin letter writing system, the main problem is the system design problem. \par
+\begin{itemize}
+	\item Differences of phonology: Latin letters are not the best system to write East asian tonal languages, which leads to complicated digraph, trigraph or multigraph. For example, the word 'sound of biting crispy food' will be written as a complicated syllable 'kha̍unnh', including digraph onset kh, quadragraph rime aunn, coda -h. 
+	\item Hyphen: it is significant to represent tone sandhi unit for languages with highly developed tone sandhi. Thus, the pure latin writing system will be full of hyphens, causing low readability and typesetting beauty. The word of 'biting crispy food', to exemplify, appears mostly in the form 'kha̍unnh-kha̍unnh'. 
+	\item System clash: The developed system will be too influencing and forces other systems to avoid clashing with it. For example, some Chinese dialect systems have to avoid use 'b' for 'voiced bilabial plosive' even that it seems to be a natural choice, since letter 'b' stands for 'tenius bilabial plosive' in Hanyu Pinyin. They have to use 'bb' or 'bh' instead. 
+\end{itemize}
+
+The Han character - lating letter mixed writing system seems to be a good solution. Despite, it is a nightmare for typesetting. 
+\begin{itemize}
+	\item It looks immature, like a primary school student use latin letters instead when he/she encounters a complicated character. 
+	\item Chaos visual performance: latin letters and east asian symbols have developed highly mature typeset art in history. But they clash to each other when mixed: different latin letters has different width to make typeset fluent and relaxing, while east asian symbols make each symbol sharing the same width to make typeset unified and clean. The mixed typeset will introduce serious sense of incongruity. For literal works, it is unacceptable. 
+\end{itemize}
+
+Now that mixed typesetting is a potential way, I was inspired by Japanese and Korean writing systems, both with long history of mixed typesetting: 
+\begin{itemize}
+	\item Japanese: characters and kana mixed writing system. It keeps the ideography and pronunciation simultaneously, flexible and useful. 
+	\item Korean writing system: Hangul system compresses each syllable into a Han character size. It supports either mixed typeset or pure Hangul typeset. 
+\end{itemize}
+
+Therefore, I tried to proposed a system combining the advantages: an expandable phonogram for East Asian tonal languages based on Bopomofo and referring to Hangul compression. So that it may be mixed with Han characters like Japanese kana. \par
+
+To avoid new unicode, I used some extra symbols to expand current Bopomofo system: 
+\begin{itemize}
+	\item Japanese （゛）and（゜）. 
+	\item Some strokes, simple Han characters and Japanese Katakana. 
+\end{itemize}
+At present, in order to display all symbols, I used font TW-98-Kai (and its additional font) and Biau-kai. In the future, if this system may be used and widely spread so that unicode accepts new Bopomofo symbols, the Japanese katakana and simple Han characters will be replaced to unify the style. \par
+\clearpage

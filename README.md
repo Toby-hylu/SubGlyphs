@@ -1,4 +1,6 @@
 # SubGlyphs
+The name 'SubGlyphs' stands for 'Stacked Universal Bopomofo Glyphs'. 
+
 This project provides a prototype of a phonetic system with the features below: 
   - Based on Bopomofo
   - Mixed typeset with Han Character: Each syllable occupies the size of one Han Character, like Japanese Kana or Korean Hangul
